@@ -1,0 +1,20 @@
+@tailwind utilities;
+
+:root {
+    --black-color1: #151515;
+    --white-color0: #ffffff;
+    --white-color1: #f5f5f5;
+    --white-color2: #eeeeee;
+    --white-color3: #dadada;
+    --blue-color1: #035096;
+    --orange-color1: #ff6806;
+    --green-color: #5E9400;
+    --brown-color1: #202020;
+    --brown-color2: #454545; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
