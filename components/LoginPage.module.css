@@ -1,4 +1,4 @@
-.SignupPage {
+.LoginPage {
     max-width: 400px;
     margin: 65px auto 10px auto;
     padding: 8px 20px;
@@ -6,20 +6,21 @@
     border: 1px solid var(--white-color3);
 }
 
-.SignupPage_h1 {
-    margin-bottom: 5px;
+.LoginPage_h1 {
     text-align: center;
     color: var(--black-color1);
+    margin-bottom: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.SignupPage_h1 span {
+.LoginPage_h1 span {
     color: var(--blue-color1);
 }
 
-.SignupPage_btn {
+.LoginPage_btn {
     width: 100%;
     padding: 12px;
+    margin-top: 5px;
     background-color: var(--blue-color1);
     color: var(--white-color0);
     border: none;
@@ -30,37 +31,38 @@
     transition: background-color 0.3s ease;
 }
 
-.SignupPage_btn:hover {
+.LoginPage_btn:hover {
     background-color: var(--orange-color1);
 }
 
-.SignupPage_p {
-    margin-top: 6px;
+.LoginPage_p {
+    margin-top: 10px;
+    margin-bottom: 5px;
     text-align: center;
     color: var(--brown-color1);
     font-size: 14px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.SignupPage_p_link {
+.LoginPage_p_link {
     text-decoration: none;
     color: var(--black-color1);
     font-weight: bold;
     transition: color 0.2s ease;
 }
 
-.SignupPage_p_link:hover {
+.LoginPage_p_link:hover {
     color: var(--blue-color1);
 }
 
 /* Responsive Design */
 @media(max-width: 480px) {
-    .SignupPage {
+    .LoginPage {
         max-width: 350px;
         margin: 100px auto 10px auto;
     }
 
-    .SignupPage_p {
+    .LoginPage_p {
         margin-top: 15px;
     }
 }

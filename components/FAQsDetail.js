@@ -11,7 +11,7 @@ const FAQsDetail = ({ marginTopValue }) => {
                 <h2 className={styles.sectionFive_h2}>Your Future <span>Awaits</span></h2>
                 <h3 className={styles.sectionFive_h3}>Take the First Step <span>Towards Success!</span></h3>
                 <Link href='/signup' className={styles.sectionFive_btn_link}>
-                    <button className={styles.sectionFive_btn}>Signup</button>
+                    <button className={styles.sectionFive_btn}>SignUp</button>
                 </Link>
             </section>
 

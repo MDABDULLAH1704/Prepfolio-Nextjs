@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import styles from './SignupPage.module.css'
 import InputField from './InputField';
+import Link from 'next/link';
 
 
 const SignupPage = () => {
@@ -28,8 +29,8 @@ const SignupPage = () => {
 
     return (
         <>
-            <div className={styles.signup_container}>
-                <h1 className={styles.signup_container_h1}>SignUp</h1>
+            <div className={styles.SignupPage}>
+                <h1 className={styles.SignupPage_h1}>Sign<span>Up</span></h1>
                 <form onSubmit={handleSubmit}>
                     <InputField
                         label='Name'
@@ -67,7 +68,11 @@ const SignupPage = () => {
                         onChange={handleChange}
                     />
 
-                    <button className={styles.signup_container_btn} type='submit'>Sign Up</button>
+                    <button className={styles.SignupPage_btn} type='submit'>SignUp</button>
+
+                    <p className={styles.SignupPage_p}>Already have an Account?
+                        <span><Link href='/login' className={styles.SignupPage_p_link} > Login </Link></span>
+                    </p>
                 </form>
             </div>
         </>

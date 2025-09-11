@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
 import Link from 'next/link'
+import { FaArrowRight } from 'react-icons/fa'
 
 const Hero = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -46,11 +47,10 @@ const Hero = () => {
                         <span className={styles.sectionTwo_span2}>folio</span>
                     </h1>
                     <h2 className={styles.sectionTwo_h2}>Learn Smarter, Not Harder</h2>
-                    <h3 className={styles.sectionTwo_h3}>Your All-in-One Learning Platform For Notes, Practice Questions & Audio Lessons</h3>
-
+                    <h3 className={styles.sectionTwo_h3}>Your All-in-One Learning Platform For PDF Notes, Practice Questions, Audio Lessons & More</h3>
                     <Link href='/courses' className={styles.sectionTwo_btn_link}>
                         <button className={styles.sectionTwo_btn}>
-                            Explore Courses
+                            Explore Courses <FaArrowRight />
                         </button>
                     </Link>
                 </section >

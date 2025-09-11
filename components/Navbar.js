@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './Navbar.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FaHome, FaUserGraduate, FaUser, FaUserCircle, FaQuestionCircle, FaEnvelope } from 'react-icons/fa'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const Navbar = () => {
@@ -29,19 +30,19 @@ const Navbar = () => {
 
                 <div className={styles.navbarRight}>
                     <Link href='/courses' className={styles.navbarRightLink}>
-                        <p>Courses</p>
+                        <p><FaUserGraduate className={styles.navbarRight_Icon} /> Courses</p>
                     </Link>
                     <Link href='/signup' className={styles.navbarRightLink}>
-                        <p>SignUp</p>
+                        <p><FaUser className={styles.navbarRight_Icon} /> SignUp</p>
                     </Link>
                     <Link href='/profile' className={styles.navbarRightLink}>
-                        <p>Profile</p>
+                        <p><FaUserCircle className={styles.navbarRight_Icon} /> Profile</p>
                     </Link>
                     <Link href='/faq' className={styles.navbarRightLink}>
-                        <p>FAQ</p>
+                        <p><FaQuestionCircle className={styles.navbarRight_Icon} /> FAQ</p>
                     </Link>
                     <Link href='/contact' className={styles.navbarRightLink}>
-                        <p>Contact</p>
+                        <p><FaEnvelope className={styles.navbarRight_Icon} /> Contact</p>
                     </Link>
                 </div>
 
@@ -53,22 +54,22 @@ const Navbar = () => {
             {showMenu && (
                 <div className={styles.menuList}>
                     <Link href='/' className={styles.menuLink} onClick={handleShowMenu}>
-                        <p>Home</p>
+                        <p><FaHome className={styles.menuList_Icon} /> Home</p>
                     </Link>
                     <Link href='/courses' className={styles.menuLink} onClick={handleShowMenu}>
-                        <p>Courses</p>
+                        <p><FaUserGraduate className={styles.menuList_Icon} /> Courses</p>
                     </Link>
                     <Link href='/signup' className={styles.menuLink} onClick={handleShowMenu}>
-                        <p>SignUp</p>
+                        <p><FaUser className={styles.menuList_Icon} /> SignUp</p>
                     </Link>
                     <Link href='/profile' className={styles.menuLink} onClick={handleShowMenu}>
-                        <p>Profile</p>
+                        <p><FaUserCircle className={styles.menuList_Icon} /> Profile</p>
                     </Link>
                     <Link href='/faq' className={styles.menuLink} onClick={handleShowMenu}>
-                        <p>FAQ</p>
+                        <p><FaQuestionCircle className={styles.menuList_Icon} /> FAQ</p>
                     </Link>
                     <Link href='/contact' className={styles.menuLink} onClick={handleShowMenu}>
-                        <p>Contact</p>
+                        <p><FaEnvelope className={styles.menuList_Icon} /> Contact</p>
                     </Link>
                 </div>
             )}
