@@ -8,10 +8,16 @@
     --white-color3: #dadada;
     --white-color4: #c0c0c0;
     --blue-color1: #035096;
+    --blue-color2: #95ccff;
+    --blue-color3: #3fa2ff;
     --orange-color1: #ff6806;
-    --green-color: #5E9400;
+    --orange-color2: #ffae78;
+    --orange-color3: #fff1e8;
+    --green-color1: #22C55E;
+    --green-color3: #3fd375;
+    --green-color2: #bbffd4;
     --brown-color1: #202020;
-    --brown-color2: #454545; 
+    --brown-color2: #454545;
 }
 
 * {

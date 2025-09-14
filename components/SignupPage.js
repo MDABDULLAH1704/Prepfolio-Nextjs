@@ -14,6 +14,7 @@ const SignupPage = () => {
         confirmPassword: '',
     });
 
+    // handleChange Function     
     const handleChange = (e) => {
         setFormData((prev) => ({
             ...prev,
@@ -35,36 +36,36 @@ const SignupPage = () => {
                     <InputField
                         label='Name'
                         type='text'
-                        name='name'
                         value={formData.name}
+                        name='name'
                         onChange={handleChange}
                     />
                     <InputField
                         label='Email'
                         type='email'
-                        name='email'
                         value={formData.email}
+                        name='email'
                         onChange={handleChange}
                     />
                     <InputField
                         label='Phone Number'
                         type='tel'
-                        name='phone'
                         value={formData.phone}
+                        name='phone'
                         onChange={handleChange}
                     />
                     <InputField
                         label='Password'
                         type='password'
-                        name='password'
                         value={formData.password}
+                        name='password'
                         onChange={handleChange}
                     />
                     <InputField
                         label='Confirm Password'
                         type='password'
-                        name='confirmPassword'
                         value={formData.confirmPassword}
+                        name='confirmPassword'
                         onChange={handleChange}
                     />
 

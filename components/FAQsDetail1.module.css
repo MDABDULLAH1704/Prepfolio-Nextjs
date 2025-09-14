@@ -1,0 +1,86 @@
+/* Section One */
+.FAQsDetail1One {
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.FAQsDetail1One_h2 {
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 25px;
+}
+
+.FAQsDetail1One_h2 span {
+    color: var(--orange-color1);
+}
+
+.FAQsDetail1One_h3 {
+    margin-bottom: 30px;
+    color: var(--brown-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.FAQsDetail1One_h3 span {
+    color: var(--blue-color1);
+    display: inline-block;
+    animation: pulse 0.3s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.FAQsDetail1One_btn {
+    color: var(--white-color1);
+    background-color: var(--blue-color1);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.FAQsDetail1One_btn:hover {
+    background-color: var(--orange-color1);
+}
+
+/* Section Two*/
+.FAQsDetail1Two_h2 {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.FAQsDetail1Two_h2 span {
+    color: var(--orange-color1);
+}
+
+/* Section Three */
+.FAQsDetail1Three {
+    margin-bottom: 80px;
+}
+
+.FAQsDetail1Three_h2 {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.FAQsDetail1Three_h2 span {
+    color: var(--orange-color1);
+}
+
+/* Responsive Design */
+@media(max-width: 480px) {}

@@ -10,6 +10,7 @@ const LoginPage = () => {
         password: '',
     });
 
+    // handleChange Function 
     const handleChange = (e) => {
         setFormData((prev) => ({
             ...prev,
@@ -31,15 +32,15 @@ const LoginPage = () => {
                     <InputField
                         label="Email"
                         type="email"
-                        name="email"
                         value={formData.email}
+                        name="email"
                         onChange={handleChange}
                     />
                     <InputField
                         label="Password"
                         type="password"
-                        name="password"
                         value={formData.password}
+                        name="password"
                         onChange={handleChange}
                     />
 

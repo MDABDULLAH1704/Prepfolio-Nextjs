@@ -1,0 +1,14 @@
+.FAQsDetail2 {
+    margin-bottom: 100px;
+}
+
+.FAQsDetail2_h2 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.FAQsDetail2_h2 span {
+    color: var(--orange-color1);
+}

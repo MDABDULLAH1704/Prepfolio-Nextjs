@@ -3,9 +3,13 @@ import React, { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
 import Link from 'next/link'
 import { FaArrowRight } from 'react-icons/fa'
+import HeroVideoSection from './HeroVideoSection'
+import Loader from './Loader'
+
 
 const Hero = () => {
     const [isVisible, setIsVisible] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,33 +27,33 @@ const Hero = () => {
         };
     }, []);
 
+    // isLoading useEffect
+    useEffect(() => {
+        const fallbackTimer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
+        return () => clearTimeout(fallbackTimer);
+    }, []);
+
     return (
         <>
-            <section className={styles.sectionOne}>
-                <div className={styles.sectionOne_videoWrapper}>
-                    <video
-                        className={styles.sectionOne_backgroundVideo}
-                        controls={false}
-                        autoPlay
-                        loop
-                        muted
-                    >
-                        <source src='/HeroVideo.mp4' type='video/mp4' />
-                    </video>
-                </div>
-            </section>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <HeroVideoSection />
+            )}
 
-            {isVisible && (
-                <section className={styles.sectionTwo}>
-                    <h1 className={styles.sectionTwo_h1}>
+            {isVisible && !isLoading && (
+                <section className={styles.Hero}>
+                    <h1 className={styles.Hero_h1}>
                         Welcome to
-                        <span className={styles.sectionTwo_span1}> Prep</span>
-                        <span className={styles.sectionTwo_span2}>folio</span>
+                        <span className={styles.Hero_span1}> Prep</span>
+                        <span className={styles.Hero_span2}>folio</span>
                     </h1>
-                    <h2 className={styles.sectionTwo_h2}>Learn Smarter, Not Harder</h2>
-                    <h3 className={styles.sectionTwo_h3}>Your All-in-One Learning Platform For PDF Notes, Practice Questions, Audio Lessons & More</h3>
-                    <Link href='/courses' className={styles.sectionTwo_btn_link}>
-                        <button className={styles.sectionTwo_btn}>
+                    <h2 className={styles.Hero_h2}>Learn Smarter, Not Harder</h2>
+                    <h3 className={styles.Hero_h3}>Your All-in-One Learning Platform For PDF Notes, Practice Questions, Audio Lessons & More</h3>
+                    <Link href='/courses' className={styles.Hero_btn_link}>
+                        <button className={styles.Hero_btn}>
                             Explore Courses <FaArrowRight />
                         </button>
                     </Link>

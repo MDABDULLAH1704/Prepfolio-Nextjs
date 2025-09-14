@@ -10,7 +10,7 @@
     gap: 250px;
     height: 60px;
     padding: 10px;
-    background-color: var(--white-color3);
+    background-color: var(--black-color1);
     z-index: 1000;
 }
 
@@ -26,7 +26,7 @@
 
 .navbarLeftLink {
     text-decoration: none;
-    color: var(--black-color1);
+    color: var(--white-color1);
 }
 
 /* Right section */
@@ -38,7 +38,7 @@
 
 .navbarRightLink {
     text-decoration: none;
-    color: var(--black-color1);
+    color: var(--white-color1);
 }
 
 .navbarRight_Icon {
@@ -109,7 +109,7 @@
     .menu {
         display: block;
         font-size: 30px;
-        color: var(--black-color1);
+        color: var(--white-color2);
         transition: transform 0.2s ease;
     }
 }

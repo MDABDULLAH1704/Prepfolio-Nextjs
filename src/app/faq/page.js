@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar'
-import FAQsDetail from '../../../components/FAQsDetail'
+import FAQsDetail1 from '../../../components/FAQsDetail1'
+import FAQsDetail2 from '../../../components/FAQsDetail2'
 
 const page = () => {
   return (
     <>
       <Navbar />
-      <FAQsDetail marginTopValue='120px' />
+      <FAQsDetail1 marginTopValue='120px' />
+      <FAQsDetail2 />
     </>
   )
 }

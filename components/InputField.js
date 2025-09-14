@@ -10,9 +10,9 @@ const InputField = ({ label, type, name, value, onChange }) => {
                 <input
                     className={styles.InputField_input}
                     type={type}
-                    id={name}
-                    name={name}
                     value={value}
+                    name={name}
+                    id={name}
                     onChange={onChange}
                     required
                 />

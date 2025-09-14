@@ -1,0 +1,25 @@
+.HeroVideoSection {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.HeroVideoSection_videoWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.HeroVideoSection_backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Design */
