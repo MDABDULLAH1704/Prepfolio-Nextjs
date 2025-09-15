@@ -10,8 +10,9 @@ const SignupPage = () => {
         name: '',
         email: '',
         phone: '',
+        gender: '',
+        college: '',
         password: '',
-        confirmPassword: '',
     });
 
     // handleChange Function     
@@ -54,18 +55,33 @@ const SignupPage = () => {
                         name='phone'
                         onChange={handleChange}
                     />
+                    <div className={styles.SignupPage_gender}>
+                        <label htmlFor='gender'>Gender</label>
+                        <select
+                            name='gender'
+                            id='gender'
+                            value={formData.gender}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value=''>Select Gender</option>
+                            <option value='male'>Male</option>
+                            <option value='female'>Female</option>
+                            <option value='other'>Other</option>
+                        </select>
+                    </div>
+                    <InputField
+                        label='College/University'
+                        type='text'
+                        value={formData.college}
+                        name='college'
+                        onChange={handleChange}
+                    />
                     <InputField
                         label='Password'
                         type='password'
                         value={formData.password}
                         name='password'
-                        onChange={handleChange}
-                    />
-                    <InputField
-                        label='Confirm Password'
-                        type='password'
-                        value={formData.confirmPassword}
-                        name='confirmPassword'
                         onChange={handleChange}
                     />
 
