@@ -18,10 +18,37 @@ const LoginPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    // handleSubmit Function 
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Login Data:', formData);
-        // Implement further login logic
+
+        // Basic frontend validation
+        if (!formData.email || !formData.password) {
+            alert('Please fill in both email and password');
+            return;
+        }
+
+        try {
+            const res = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                console.log('Login successful:', data);
+                localStorage.setItem('token', data.token);
+                window.location.href = '/courses';
+            } else {
+                console.error('Login error:', data.message);
+                alert(data.message || 'Email or password is incorrect');
+            }
+        } catch (err) {
+            console.error('Server error:', err);
+            alert('Server error. Please try again later.');
+        }
     };
 
     return (

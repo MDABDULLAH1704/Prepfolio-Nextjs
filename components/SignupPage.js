@@ -23,11 +23,43 @@ const SignupPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    // handleSubmit Function 
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form Data:', formData);
-        // Implement further signup logic
+
+        // Validation
+        if (!/^\d{10}$/.test(formData.phone)) {
+            alert('Phone number must be exactly 10 digits');
+            return;
+        }
+        if (!/^(?=.*[!@#$%^&*])(?=.{6,15})/.test(formData.password)) {
+            alert('Password must be 6-15 characters and include a special character');
+            return;
+        }
+
+        try {
+            const res = await fetch('http://localhost:5000/api/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                console.log('Signup successful:', data);
+                localStorage.setItem('token', data.token);
+                window.location.href = '/login';
+            } else {
+                console.error('Signup error:', data.message);
+                alert(data.message || 'Signup failed');
+            }
+        } catch (err) {
+            console.error('Server error:', err);
+            alert('Server error. Please try again later.');
+        }
     };
+
 
     return (
         <>
@@ -71,7 +103,7 @@ const SignupPage = () => {
                         </select>
                     </div>
                     <InputField
-                        label='College/University'
+                        label='College/University Name'
                         type='text'
                         value={formData.college}
                         name='college'
