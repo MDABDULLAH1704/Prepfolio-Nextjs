@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 import styles from './LoginPage.module.css'
 import InputField from './InputField'
 import Link from 'next/link';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const LoginPage = () => {
+    const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -62,14 +64,27 @@ const LoginPage = () => {
                         value={formData.email}
                         name="email"
                         onChange={handleChange}
+                        placeholder='Enter Your Email'
                     />
-                    <InputField
-                        label="Password"
-                        type="password"
-                        value={formData.password}
-                        name="password"
-                        onChange={handleChange}
-                    />
+                    <label className={styles.LoginPage_passwordLabel} htmlFor='password'>Password</label>
+                    <div className={styles.LoginPage_passwordLabel_div}>
+                        <input
+                            className={styles.LoginPage_passwordLabel_div_input}
+                            id='password'
+                            type={showPassword ? 'text' : 'password'}
+                            value={formData.password}
+                            name='password'
+                            onChange={handleChange}
+                            placeholder='Enter Your Password'
+                            required
+                        />
+                        <span
+                            className={styles.LoginPage_passwordLabel_div_span}
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
+                    </div>
 
                     <button className={styles.LoginPage_btn} type="submit">Login</button>
 

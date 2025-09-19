@@ -17,6 +17,40 @@
     color: var(--blue-color1);
 }
 
+/* Password */
+.LoginPage_passwordLabel {
+    font-weight: bold;
+    color: var(--brown-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.LoginPage_passwordLabel_div {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid var(--white-color4);
+    background-color: var(--white-color1);
+}
+
+.LoginPage_passwordLabel_div:focus-within {
+    border: 1px solid var(--blue-color1);
+}
+
+.LoginPage_passwordLabel_div_input {
+    width: 90%;
+    padding: 8px 6px;
+    color: var(--brown-color2);
+    background-color: var(--white-color1);
+    border: none;
+    outline: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.LoginPage_passwordLabel_div_span {
+    position: relative;
+    top: 3px;
+}
+
+/* Login Btn */
 .LoginPage_btn {
     width: 100%;
     padding: 12px;

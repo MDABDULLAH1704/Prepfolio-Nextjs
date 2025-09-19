@@ -1,19 +1,19 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
-// const userSchema = new mongoose.Schema({
-//     name: { type: String, required: true },
-//     email: { type: String, required: true, unique: true },
-//     phone: { type: String, required: true, unique: true },
-//     gender: { type: String, required: true },
-//     college: { type: String, required: true },
-//     password: { type: String, required: true },
-//     role: { type: String, enum: ['student', 'teacher'], default: 'student' },
-// }, { timestamps: true });
+// capitalizeWords function   
+function capitalizeWords(str) {
+    return str
+        .toLowerCase()
+        .split(' ')
+        .filter(word => word.trim() !== '') // remove extra spaces
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
 
 const userSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    name: { type: String, required: true, set: v => capitalizeWords(v) },
+    email: { type: String, required: true, unique: true, trim: true, set: v => v.toLowerCase() },
     phone: {
         type: String,
         required: true,
@@ -25,8 +25,9 @@ const userSchema = new mongoose.Schema({
             message: props => `${props.value} is not a valid 10-digit phone number!`
         }
     },
-    gender: { type: String },
-    college: { type: String },
+    gender: { type: String, required: true, set: v => capitalizeWords(v) },
+    course: { type: String, required: true, set: v => v.toUpperCase() },
+    college: { type: String, required: true, set: v => v.toUpperCase() },
     password: {
         type: String,
         required: true,
@@ -55,28 +56,3 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 
 const User = mongoose.model('User', userSchema);
 export default User;
-
-
-
-
-
-
-
-// import mongoose from 'mongoose';
-
-// const userSchema = new mongoose.Schema(
-//     {
-//         name: { type: String, required: true },
-//         email: { type: String, required: true, unique: true },
-//         phone: { type: String },
-//         gender: { type: String },
-//         college: { type: String },
-//         password: { type: String, required: true },
-//         role: { type: String, default: 'student' },
-//     },
-//     { timestamps: true }
-// );
-
-// const User = mongoose.model('User', userSchema);
-
-// export default User;

@@ -3,14 +3,17 @@ import React, { useState } from 'react'
 import styles from './SignupPage.module.css'
 import InputField from './InputField';
 import Link from 'next/link';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const SignupPage = () => {
+    const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         gender: '',
+        course: '',
         college: '',
         password: '',
     });
@@ -72,6 +75,7 @@ const SignupPage = () => {
                         value={formData.name}
                         name='name'
                         onChange={handleChange}
+                        placeholder='Enter Your Full Name'
                     />
                     <InputField
                         label='Email'
@@ -79,6 +83,7 @@ const SignupPage = () => {
                         value={formData.email}
                         name='email'
                         onChange={handleChange}
+                        placeholder='Enter Your Email'
                     />
                     <InputField
                         label='Phone Number'
@@ -86,8 +91,9 @@ const SignupPage = () => {
                         value={formData.phone}
                         name='phone'
                         onChange={handleChange}
+                        placeholder='Enter Your Phone Number'
                     />
-                    <div className={styles.SignupPage_gender}>
+                    <div className={styles.SignupPage_gender_course}>
                         <label htmlFor='gender'>Gender</label>
                         <select
                             name='gender'
@@ -101,6 +107,17 @@ const SignupPage = () => {
                             <option value='female'>Female</option>
                             <option value='other'>Other</option>
                         </select>
+                        <label htmlFor='course'>Course</label>
+                        <select
+                            name='course'
+                            id='course'
+                            value={formData.course}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value=''>Select Course</option>
+                            <option value='bca'>BCA</option>
+                        </select>
                     </div>
                     <InputField
                         label='College/University Name'
@@ -108,14 +125,27 @@ const SignupPage = () => {
                         value={formData.college}
                         name='college'
                         onChange={handleChange}
+                        placeholder='Enter Your Full Colleges or Universities Name'
                     />
-                    <InputField
-                        label='Password'
-                        type='password'
-                        value={formData.password}
-                        name='password'
-                        onChange={handleChange}
-                    />
+                    <label className={styles.SignupPage_passwordLabel} htmlFor='password'>Password</label>
+                    <div className={styles.SignupPage_passwordLabel_div}>
+                        <input
+                            className={styles.SignupPage_passwordLabel_div_input}
+                            id='password'
+                            type={showPassword ? 'text' : 'password'}   
+                            value={formData.password}
+                            name='password'
+                            onChange={handleChange}
+                            placeholder='Enter Your Password'
+                            required
+                        />
+                        <span
+                            className={styles.SignupPage_passwordLabel_div_span}
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
+                    </div>
 
                     <button className={styles.SignupPage_btn} type='submit'>SignUp</button>
 

@@ -3,30 +3,36 @@ import { generateToken } from '../utils/tokenUtils.js';
 
 export const signup = async (req, res, next) => {
     try {
-        const { name, email, phone, gender, college, password } = req.body;
+        const { name, email, phone, gender, course, college, password } = req.body;
 
-        if (!name || !email || !phone || !password) {
+        // 1. Basic required field check
+        if (!name || !email || !phone || !gender || !course || !college || !password) {
             return res.status(400).json({ success: false, message: 'Required fields missing' });
         }
 
-        // Validate phone (exactly 10 digits)
+        //  2. Phone validation
         if (!/^\d{10}$/.test(phone)) {
             return res.status(400).json({ success: false, message: 'Phone number must be exactly 10 digits' });
         }
 
-        // Validate password (6-15 chars, at least 1 special character)
+        // 3. Password validation
         if (!/^(?=.*[!@#$%^&*])(?=.{6,15})/.test(password)) {
             return res.status(400).json({ success: false, message: 'Password must be 6-15 characters and include a special character' });
         }
 
+        // 4. Check if user exists
         const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
         if (existingUser) {
             return res.status(400).json({ success: false, message: 'User already exists' });
         }
 
-        const user = await User.create({ name, email, phone, gender, college, password });
+        // 5. Create new user (setters & pre-save middleware will run here)
+        const user = await User.create({ name, email, phone, gender, course, college, password });
+
+        // 6. Generate token
         const token = generateToken(user._id);
 
+        // 7. Send response
         res.status(201).json({
             success: true,
             message: 'User created successfully',
