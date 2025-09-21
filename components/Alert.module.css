@@ -1,0 +1,48 @@
+.alertBox {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--brown-color1);
+    color: var(--white-color3);
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: fixed;
+    top: 61px;
+    right: 1px;
+}
+
+.alertBox span {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.alertBox_closeBtn {
+    background: transparent;
+    border: none;
+    color: var(--white-color2);
+    font-size: 18px;
+    cursor: pointer;
+    transition: scale 0.2s ease;
+}
+
+.alertBox_closeBtn:hover {
+    scale: 1.12;
+}
+
+/* Responsive Design */
+@media (max-width:768px) {
+    .alertBox {
+        margin-left: 1px;
+    }
+}
+
+@media (max-width:480px) {
+    .alertBox {
+        top: 56px;
+    }
+
+    .alertBox_closeBtn {
+        font-size: 25px;
+    }
+}
