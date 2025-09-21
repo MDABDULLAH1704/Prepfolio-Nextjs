@@ -5,6 +5,7 @@ import InputField from './InputField'
 import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
+
 const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const LoginPage = () => {
             if (res.ok && data.success) {
                 console.log('Login successful:', data);
                 localStorage.setItem('token', data.token);
-                window.location.href = '/courses';
+                window.location.href = '/profile';
             } else {
                 console.error('Login error:', data.message);
                 alert(data.message || 'Email or password is incorrect');
@@ -89,7 +90,7 @@ const LoginPage = () => {
                     <button className={styles.LoginPage_btn} type="submit">Login</button>
 
                     <p className={styles.LoginPage_p}>Don't have an account?
-                        <span><Link href='/signup' className={styles.LoginPage_p_link} > SingUp </Link></span>
+                        <span><Link href='/signup' className={styles.LoginPage_p_link} > SignUp </Link></span>
                     </p>
                 </form>
             </div>

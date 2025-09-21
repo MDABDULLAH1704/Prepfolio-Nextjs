@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 import { generateToken } from '../utils/tokenUtils.js';
 
+// Signup Function 
 export const signup = async (req, res, next) => {
     try {
         const { name, email, phone, gender, course, college, password } = req.body;
@@ -9,29 +10,23 @@ export const signup = async (req, res, next) => {
         if (!name || !email || !phone || !gender || !course || !college || !password) {
             return res.status(400).json({ success: false, message: 'Required fields missing' });
         }
-
         //  2. Phone validation
         if (!/^\d{10}$/.test(phone)) {
             return res.status(400).json({ success: false, message: 'Phone number must be exactly 10 digits' });
         }
-
         // 3. Password validation
         if (!/^(?=.*[!@#$%^&*])(?=.{6,15})/.test(password)) {
             return res.status(400).json({ success: false, message: 'Password must be 6-15 characters and include a special character' });
         }
-
         // 4. Check if user exists
         const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
         if (existingUser) {
             return res.status(400).json({ success: false, message: 'User already exists' });
         }
-
         // 5. Create new user (setters & pre-save middleware will run here)
         const user = await User.create({ name, email, phone, gender, course, college, password });
-
         // 6. Generate token
         const token = generateToken(user._id);
-
         // 7. Send response
         res.status(201).json({
             success: true,
@@ -49,8 +44,7 @@ export const signup = async (req, res, next) => {
     }
 };
 
-
-// Login
+// Signup Function 
 export const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
@@ -84,5 +78,17 @@ export const login = async (req, res, next) => {
         });
     } catch (error) {
         next(error);
+    }
+};
+
+// Get user profile
+export const getProfile = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.status(401).json({ success: false, message: 'Not authorized' });
+        }
+        res.status(200).json({ success: true, user: req.user });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error' });
     }
 };
