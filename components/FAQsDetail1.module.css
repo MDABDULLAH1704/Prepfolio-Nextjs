@@ -46,11 +46,12 @@
     border-radius: 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease, border-radius 0.4s ease;
 }
 
 .FAQsDetail1One_btn:hover {
     background-color: var(--orange-color1);
+    border-radius: 0px;
 }
 
 /* Section Two*/

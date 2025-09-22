@@ -87,10 +87,16 @@
 .contactPageSec2_div_email_p2 {
     color: var(--blue-color1);
     cursor: pointer;
+    transition: transform 0.4s ease, color 0.4s ease, background-color 0.4s ease, padding 0.4s ease, border-radius 0.4s ease, border 0.4s ease;
 }
 
 .contactPageSec2_div_email_p2:hover {
+    transform: scale(2);
     color: var(--blue-color3);
+    background-color: var(--orange-color3);
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid var(--white-color4);
 }
 
 /* For Whatsapp */
@@ -128,17 +134,19 @@
     background-color: var(--green-color1);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
 }
 
 .contactPageSec2_div_whatsapp_p2:hover {
     background-color: var(--green-color3);
+    border-radius: 1px;
 }
 
 /* Responsive Design */
 @media(max-width: 900px) {
+
     .contactPageSec2_div_email,
     .contactPageSec2_div_whatsapp {
         margin-left: 20%;
@@ -163,6 +171,11 @@
 @media(max-width: 480px) {
     .contactPageSec1_div {
         width: 90%;
+    }
+
+    .contactPageSec2_div_email_p2:hover {
+        transform: scale(1.5);
+        margin-right: 40px;
     }
 
     .contactPageSec2_div_email,

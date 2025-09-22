@@ -1,3 +1,125 @@
-.SignupDataShow {
+.SignupDataShow_loading,
+.SignupDataShow_error {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.SignupDataShow {
+    margin: 90px 50px 0px 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    background-color: var(--orange-color3);
+    border: 1px solid var(--white-color3);
+    border-radius: 10px;
+}
+
+.SignupDataShow_left {
+    font-size: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--blue-color1);
+}
+
+.SignupDataShow_left span {
+    color: var(--orange-color1);
+}
+
+.SignupDataShow_right {
+    line-height: 22px;
+}
+
+.SignupDataShow_right p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.SignupDataShow_right p b {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* SignupDataShow_2 */
+.SignupDataShow_2 {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.SignupDataShow_2_btn {
+    background-color: var(--blue-color1);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px 22px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, border-radius 0.4s ease;
+}
+
+.SignupDataShow_2_btn:hover {
+    background-color: var(--orange-color1);
+    border-radius: 20px;
+}
+
+.SignupDataShow_2_link {
+    text-decoration: none;
+    color: var(--white-color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Responsive Design */
+@media(max-width:1024px) {
+    .SignupDataShow {
+        margin: 90px 20px 0px 20px;
+        padding: 20px 0px;
+        gap: 40px;
+    }
+}
+
+@media(max-width:850px) {
+    .SignupDataShow {
+        margin: 90px 10px 0px 10px;
+        padding: 20px 0px;
+        gap: 20px;
+    }
+
+    .SignupDataShow_left {
+        font-size: 90px;
+    }
+}
+
+@media(max-width:768px) {
+    .SignupDataShow {
+        margin: 90px 20px 0px 20px;
+        padding: 20px 40px;
+        gap: 10px;
+    }
+
+    .SignupDataShow_left {
+        font-size: 100px;
+    }
+}
+
+@media(max-width:480px) {
+    .SignupDataShow {
+        margin: 80px 10px 0px 10px;
+        padding: 20px 25px;
+        gap: 5px;
+        border-radius: 5px;
+    }
+}
+
+@media(max-width:350px) {
+    .SignupDataShow {
+        padding: 20px 15px;
+    }
+
+    .SignupDataShow_left {
+        font-size: 90px;
+    }
 }

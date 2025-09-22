@@ -75,12 +75,13 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s ease, color 0.4s ease, border-radius  0.4s ease;
 }
 
 .Hero_btn:hover {
     color: var(--black-color1);
     background-color: var(--white-color3);
+    border-radius: 20px;
 }
 
 .Hero_btn_link {

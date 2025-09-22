@@ -91,7 +91,7 @@ const SignupPage = () => {
                         value={formData.phone}
                         name='phone'
                         onChange={handleChange}
-                        placeholder='Enter Your Phone Number'
+                        placeholder='+91 Enter Your Phone Number'
                     />
                     <div className={styles.SignupPage_gender_course}>
                         <label htmlFor='gender'>Gender</label>
