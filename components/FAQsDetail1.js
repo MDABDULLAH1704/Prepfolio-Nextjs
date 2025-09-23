@@ -8,7 +8,7 @@ const FAQsDetail1 = ({ marginTopValue }) => {
     return (
         <>
             <section className={styles.FAQsDetail1One} style={{ marginTop: marginTopValue }}>
-                <h2 className={styles.FAQsDetail1One_h2}>Your Future <span>Awaits</span></h2>
+                <h2 className={styles.FAQsDetail1One_h2}  >Your Future <span>Awaits</span></h2>
                 <h3 className={styles.FAQsDetail1One_h3}>Take the First Step <span>Towards Success!</span></h3>
                 <Link href='/signup' className={styles.FAQsDetail1One_btn_link}>
                     <button className={styles.FAQsDetail1One_btn}>SignUp</button>

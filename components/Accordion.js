@@ -1,7 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Accordion.module.css'
 import { FiPlus, FiMinus } from 'react-icons/fi'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 
 const Accordion = ({ question, answer, isOpen = false }) => {
@@ -10,6 +12,14 @@ const Accordion = ({ question, answer, isOpen = false }) => {
     const toggleAccordion = () => {
         setOpen(!open)
     }
+
+    // For AOS Animation
+    useEffect(() => {
+        AOS.init({
+            duration: 600,
+            delay: 100
+        });
+    }, []);
 
     return (
         <div className={styles.accordion}>
@@ -24,7 +34,7 @@ const Accordion = ({ question, answer, isOpen = false }) => {
 
             {open && (
                 <div className={styles.accordionContent}>
-                    <p>{answer}</p>
+                    <p data-aos='fade'>{answer}</p>
                 </div>
             )}
         </div>

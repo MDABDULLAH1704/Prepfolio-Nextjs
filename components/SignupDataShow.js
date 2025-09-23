@@ -4,6 +4,8 @@ import styles from './SignupDataShow.module.css';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 
 const SignupDataShow = () => {
@@ -47,12 +49,20 @@ const SignupDataShow = () => {
         fetchProfile();
     }, [router]);
 
+    // For AOS Animation
+    useEffect(() => {
+        AOS.init({
+            duration: 600,
+            delay: 100
+        });
+    }, []);
+
     if (loading) return <p className={styles.SignupDataShow_loading}>Loading Profile Data ...</p>;
     if (error) return <p className={styles.SignupDataShow_error}>{error}</p>;
 
     return (
         <>
-            <div className={styles.SignupDataShow}>
+            <div className={styles.SignupDataShow} data-aos='fade'>
                 <div className={styles.SignupDataShow_left}>
                     Pro<span>file</span>
                 </div>
@@ -66,7 +76,7 @@ const SignupDataShow = () => {
                 </div>
             </div>
 
-            <div className={styles.SignupDataShow_2}>
+            <div className={styles.SignupDataShow_2} data-aos='fade' data-aos-delay='500'>
                 <button className={styles.SignupDataShow_2_btn}>
                     <Link href='/courses' className={styles.SignupDataShow_2_link}>
                         Explore Courses <FaArrowRight />

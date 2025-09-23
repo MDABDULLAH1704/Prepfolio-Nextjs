@@ -1,9 +1,11 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './LoginPage.module.css'
 import InputField from './InputField'
 import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 
 const LoginPage = () => {
@@ -54,9 +56,17 @@ const LoginPage = () => {
         }
     };
 
+    // For AOS Animation
+    useEffect(() => {
+        AOS.init({
+            duration: 600,
+            delay: 100
+        });
+    }, []);
+
     return (
         <>
-            <div className={styles.LoginPage}>
+            <div className={styles.LoginPage} data-aos='zoom-in'>
                 <h1 className={styles.LoginPage_h1}>Log<span>in</span></h1>
                 <form onSubmit={handleSubmit}>
                     <InputField

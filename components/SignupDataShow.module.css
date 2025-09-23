@@ -34,10 +34,12 @@
 }
 
 .SignupDataShow_right p {
+    color: var(--brown-color2);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .SignupDataShow_right p b {
+    color: var(--brown-color1);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 

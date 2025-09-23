@@ -168,6 +168,14 @@
     }
 }
 
+@media(max-width: 550px) {
+
+    .contactPageSec2_div_email_p2:hover {
+        transform: scale(1.8);
+        margin-right: 50px;
+    }
+}
+
 @media(max-width: 480px) {
     .contactPageSec1_div {
         width: 90%;
@@ -175,7 +183,7 @@
 
     .contactPageSec2_div_email_p2:hover {
         transform: scale(1.5);
-        margin-right: 40px;
+        margin-right: 50px;
     }
 
     .contactPageSec2_div_email,
