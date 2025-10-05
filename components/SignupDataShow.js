@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
 const SignupDataShow = () => {
@@ -24,7 +25,7 @@ const SignupDataShow = () => {
                 return;
             }
             try {
-                const res = await fetch('http://localhost:5000/api/auth/profile', {
+                const res = await fetch(`${baseURL}/auth/profile`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

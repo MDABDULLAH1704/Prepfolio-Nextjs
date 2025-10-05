@@ -38,7 +38,7 @@ const Navbar = () => {
                     <Link href='/profile' className={styles.navbarRightLink}>
                         <p><FaUserCircle className={styles.navbarRight_Icon} /> Profile</p>
                     </Link>
-                    <Link href='/faq' className={styles.navbarRightLink}>
+                    <Link href='/faqs' className={styles.navbarRightLink}>
                         <p><FaQuestionCircle className={styles.navbarRight_Icon} /> FAQs</p>
                     </Link>
                     <Link href='/contact' className={styles.navbarRightLink}>
@@ -65,7 +65,7 @@ const Navbar = () => {
                     <Link href='/profile' className={styles.menuLink} onClick={handleShowMenu}>
                         <p><FaUserCircle className={styles.menuList_Icon} /> Profile</p>
                     </Link>
-                    <Link href='/faq' className={styles.menuLink} onClick={handleShowMenu}>
+                    <Link href='/faqs' className={styles.menuLink} onClick={handleShowMenu}>
                         <p><FaQuestionCircle className={styles.menuList_Icon} /> FAQs</p>
                     </Link>
                     <Link href='/contact' className={styles.menuLink} onClick={handleShowMenu}>

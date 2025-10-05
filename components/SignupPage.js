@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
 const SignupPage = () => {
@@ -43,7 +44,7 @@ const SignupPage = () => {
         }
 
         try {
-            const res = await fetch('http://localhost:5000/api/auth/signup', {
+            const res = await fetch(`${baseURL}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

@@ -87,16 +87,14 @@
 .contactPageSec2_div_email_p2 {
     color: var(--blue-color1);
     cursor: pointer;
-    transition: transform 0.4s ease, color 0.4s ease, background-color 0.4s ease, padding 0.4s ease, border-radius 0.4s ease, border 0.4s ease;
+    transition: transform 0.4s ease, color 0.4s ease, background-color 0.4s ease, border-radius 0.4s ease;
 }
 
 .contactPageSec2_div_email_p2:hover {
-    transform: scale(2);
+    transform: scale(1.5);
     color: var(--blue-color3);
     background-color: var(--orange-color3);
-    padding: 2px 4px;
     border-radius: 3px;
-    border: 1px solid var(--white-color4);
 }
 
 /* For Whatsapp */
@@ -169,10 +167,8 @@
 }
 
 @media(max-width: 550px) {
-
     .contactPageSec2_div_email_p2:hover {
-        transform: scale(1.8);
-        margin-right: 50px;
+        transform: scale(1.3);
     }
 }
 
@@ -182,7 +178,7 @@
     }
 
     .contactPageSec2_div_email_p2:hover {
-        transform: scale(1.5);
+        transform: scale(1.2);
         margin-right: 50px;
     }
 
