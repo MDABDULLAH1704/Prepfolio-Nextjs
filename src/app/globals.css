@@ -10,6 +10,7 @@
     --blue-color1: #035096;
     --blue-color2: #95ccff;
     --blue-color3: #3fa2ff;
+    --blue-color4: #1f66a8;
     --orange-color1: #ff6806;
     --orange-color2: #ffae78;
     --orange-color3: #fff1e8;
@@ -18,6 +19,8 @@
     --green-color2: #bbffd4;
     --brown-color1: #202020;
     --brown-color2: #454545;
+    --brown-color3: #5a5a5a;
+    --red-color1: #ff5055;
 }
 
 * {
