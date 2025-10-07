@@ -4,8 +4,11 @@ import styles from './CourseItem.module.css'
 import Image from 'next/image'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { useRouter } from 'next/navigation';
 
 const CourseItem = (props) => {
+    const router = useRouter();
+
     // For AOS Animation
     useEffect(() => {
         AOS.init({
@@ -13,6 +16,10 @@ const CourseItem = (props) => {
             delay: 100
         });
     }, []);
+
+    const handleViewCourse = () => {
+        router.push(`/courses/${props.id}`); // navigate to dynamic course page
+    }
 
     return (
         <>
@@ -28,7 +35,9 @@ const CourseItem = (props) => {
                 />
                 <h3 className={styles.CourseItem_h3}>{props.title}</h3>
                 <p className={styles.CourseItem_p}>&#8377;{props.newPrice} <span>&#8377;{props.oldPrice}</span></p>
-                <button className={styles.CourseItem_btn1}>View Course</button>
+                <button className={styles.CourseItem_btn1} onClick={handleViewCourse}>
+                    View Course
+                </button>
                 <button className={styles.CourseItem_btn2}>Buy Course</button>
             </div>
         </>
