@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '180d' });
+    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '365d' });
 };
 
 export const API_BASE_URL = 

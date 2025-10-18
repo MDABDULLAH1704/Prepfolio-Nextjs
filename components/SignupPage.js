@@ -11,6 +11,7 @@ const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const SignupPage = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -43,8 +44,10 @@ const SignupPage = () => {
             return;
         }
 
+        setIsLoading(true);
+
         try {
-            const res = await fetch(`${baseURL}/auth/signup`, {
+            const res = await fetch(`${baseURL}/api/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -53,7 +56,6 @@ const SignupPage = () => {
             const data = await res.json();
 
             if (res.ok && data.success) {
-                console.log('Signup successful:', data);
                 localStorage.setItem('token', data.token);
                 window.location.href = '/login';
             } else {
@@ -63,6 +65,8 @@ const SignupPage = () => {
         } catch (err) {
             console.error('Server error:', err);
             alert('Server error. Please try again later.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -101,7 +105,7 @@ const SignupPage = () => {
                         value={formData.phone}
                         name='phone'
                         onChange={handleChange}
-                        placeholder='+91 Enter Your Phone Number'
+                        placeholder='Enter Your Phone Number'
                     />
                     <div className={styles.SignupPage_gender_course}>
                         <label htmlFor='gender'>Gender</label>
@@ -135,14 +139,14 @@ const SignupPage = () => {
                         value={formData.college}
                         name='college'
                         onChange={handleChange}
-                        placeholder='Enter Your Full Colleges or Universities Name'
+                        placeholder='Enter Your Full College or University Name'
                     />
                     <label className={styles.SignupPage_passwordLabel} htmlFor='password'>Password</label>
                     <div className={styles.SignupPage_passwordLabel_div}>
                         <input
                             className={styles.SignupPage_passwordLabel_div_input}
                             id='password'
-                            type={showPassword ? 'text' : 'password'}   
+                            type={showPassword ? 'text' : 'password'}
                             value={formData.password}
                             name='password'
                             onChange={handleChange}
@@ -157,10 +161,16 @@ const SignupPage = () => {
                         </span>
                     </div>
 
-                    <button className={styles.SignupPage_btn} type='submit'>SignUp</button>
+                    <button
+                        className={styles.SignupPage_btn}
+                        type='submit'
+                        disabled={isLoading}
+                    >
+                        {isLoading ? 'Signing...' : 'SignUp'}
+                    </button>
 
                     <p className={styles.SignupPage_p}>Already have an Account?
-                        <span><Link href='/login' className={styles.SignupPage_p_link} > Login </Link></span>
+                        <span><Link href='/login' className={styles.SignupPage_p_link} >Login</Link></span>
                     </p>
                 </form>
             </div>

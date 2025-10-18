@@ -1,0 +1,105 @@
+.renderPDFButtons_div {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    line-height: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* PDFNotes */
+.PDFNotes {
+    margin-top: 70px;
+}
+
+.PDFNotes_title {
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--black-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.PDFNotes_div {
+    margin-left: 150px;
+    margin-right: 150px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 0px 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .PDFNotes_div {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 924px) {
+    .PDFNotes_div {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 824px) {
+    .PDFNotes_div {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .PDFNotes_div {
+        margin-left: 150px;
+        margin-right: 150px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 668px) {
+    .PDFNotes_div {
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+}
+
+@media (max-width: 568px) {
+    .PDFNotes_div {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .PDFNotes {
+        margin-top: 60px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .PDFNotes_div {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 440px) {
+    .PDFNotes_div {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .PDFNotes_div {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .PDFNotes_div {
+        margin-left: 10px;
+        margin-right: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

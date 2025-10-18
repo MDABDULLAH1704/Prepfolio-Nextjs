@@ -25,7 +25,7 @@ const SignupDataShow = () => {
                 return;
             }
             try {
-                const res = await fetch(`${baseURL}/auth/profile`, {
+                const res = await fetch(`${baseURL}/api/auth/profile`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const SignupDataShow = () => {
                 </div>
             </div>
 
-            <div className={styles.SignupDataShow_2} data-aos='fade' data-aos-delay='500'>
+            <div className={styles.SignupDataShow_2} data-aos='fade' data-aos-delay='200'>
                 <button className={styles.SignupDataShow_2_btn}>
                     <Link href='/courses' className={styles.SignupDataShow_2_link}>
                         Explore Courses <FaArrowRight />

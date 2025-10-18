@@ -114,14 +114,16 @@ input[type="password"]::-webkit-password-toggle-button {
 }
 
 .SignupPage_p_link {
-    text-decoration: none;
-    color: var(--black-color1);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin-left: 3px;
+    color: var(--blue-color1);
     font-weight: bold;
     transition: color 0.2s ease;
 }
 
 .SignupPage_p_link:hover {
-    color: var(--blue-color1);
+    color: var(--black-color1);
 }
 
 /* Responsive Design */

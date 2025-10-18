@@ -7,7 +7,7 @@
 }
 
 .SignupDataShow {
-    margin: 90px 50px 0px 50px;
+    margin: 70px 50px 0px 50px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -45,7 +45,7 @@
 
 /* SignupDataShow_2 */
 .SignupDataShow_2 {
-    margin-top: 25px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -77,7 +77,7 @@
 /* Responsive Design */
 @media(max-width:1024px) {
     .SignupDataShow {
-        margin: 90px 20px 0px 20px;
+        margin: 70px 20px 0px 20px;
         padding: 20px 0px;
         gap: 40px;
     }
@@ -85,7 +85,7 @@
 
 @media(max-width:850px) {
     .SignupDataShow {
-        margin: 90px 10px 0px 10px;
+        margin: 70px 10px 0px 10px;
         padding: 20px 0px;
         gap: 20px;
     }
@@ -97,7 +97,7 @@
 
 @media(max-width:768px) {
     .SignupDataShow {
-        margin: 90px 20px 0px 20px;
+        margin: 70px 20px 0px 20px;
         padding: 20px 40px;
         gap: 10px;
     }
@@ -109,7 +109,7 @@
 
 @media(max-width:480px) {
     .SignupDataShow {
-        margin: 80px 10px 0px 10px;
+        margin: 65px 10px 0px 10px;
         padding: 20px 25px;
         gap: 5px;
         border-radius: 5px;

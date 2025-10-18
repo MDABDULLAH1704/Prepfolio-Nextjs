@@ -16,7 +16,7 @@ const FAQsDetail2 = () => {
                 />
                 <Accordion
                     question='Q2. Are all semester courses free or paid?'
-                    answer='Our courses require a small fee to cover the platforms maintenance and operating costs. Our vision is to provide high-quality learning materials at a very affordable price, making education accessible to all students.'
+                    answer='Paid, because our Courses require a small fee to cover the platforms maintenance and operating costs. Our vision is to provide high-quality learning materials at a very affordable price, making education accessible to all students.'
                 />
                 <Accordion
                     question='Q3. Are the semester courses separate or bundled together?'

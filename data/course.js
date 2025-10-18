@@ -1,6 +1,6 @@
-import courseImg1 from './course1.webp';
-import courseImg2 from './course2.png';
-import courseImg3 from './course3.webp';
+import courseImg1 from '../public/course1.webp';
+import courseImg2 from '../public/course2.png';
+import courseImg3 from '../public/course3.webp';
 
 const all_course = [
     {
@@ -50,7 +50,7 @@ const all_course = [
         topic3: 'UNIT – I: Fundamentals: WWW, Internet, Web Browsers, Web Servers, URLs, MIME, HTTP. UNIT – II: HTML: Origins of HTML, Basic syntax, Standard HTML page structure, Text markup, Images, HyperLinks, Lists, Tables and Form. UNIT – III: CSS: Introduction, Selectors, Font attributes, List attributes, Color, Alignment of text, The Box model, Background images, The <span> and <div> tags. UNIT – IV: Java Script: Overview, Object notation, Operations, expressions, browser output, keyboard input, Control statements, Object creation, Arrays, Functions, Pattern matching using expressions, error handling, The Document Object Model, Element access, Events and event handling.',
         subject4: 'COMPUTER NETWORK, SECURITY AND CYBER LAW',
         topic4: 'UNIT – I: Computer Network: Introduction: Definition, its use, goals and structure, network architecture, ISO reference model, Network Model, Connecting Devices, TCP/IP, UDP. Network Topology: Topology Design process, connectivity analysis, Delay analysis, Backbone design, Logical Access Design. UNIT – II: Physical Link Layer: Theoretical basis for data communication, Data and signal, Digital and Analog transmission, transmission media, Switching, multiplexing. UNIT – III: Data Link protocols, Data Link controls, Sliding window protocols, Virtual circuits, Routing algorithms, Congestion, Examples of network layers, selected examples, Error detection and correction, Multiple Access, Congestion control, Framing, MAC Sublayer, IPv4, IPv6 Address, ICMP, IGMP. UNIT – IV: Network Security: Introduction: Security Overview, Cyber security fundamentals, Security System design architecture, The OSI Security Architecture tools and techniques, Current Vulnerabilities - Different Security attacks, Countermeasures, Security Services, Model for Network Security. Symmetric Cipher: Classical Encryption techniques, Symmetric Cipher Model, Block Cipher Design principles – Feistel Structure, DES, Triple DES, Advanced Encryption Standard (AES), Stream Cipher and RC4. UNIT – V: Public Key Encryption: Message Authentication, RSA Algorithm, Digital Signature. Network Security Algorithms: Kerberos, X.509, Authentication Services. System Security: Intrusion Detection, Password management, Virus countermeasure, Firewall. UNIT – VI: Introductory Concept of Cyber Laws: IT Laws, policies and Government Regulations – Global, IT Act – India.',
-    },
+    }
 ];
 
 export default all_course;

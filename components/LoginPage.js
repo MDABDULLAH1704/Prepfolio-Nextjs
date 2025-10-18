@@ -11,6 +11,7 @@ const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -34,8 +35,10 @@ const LoginPage = () => {
             return;
         }
 
+        setIsLoading(true);
+
         try {
-            const res = await fetch(`${baseURL}/auth/login`, {
+            const res = await fetch(`${baseURL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -44,8 +47,8 @@ const LoginPage = () => {
             const data = await res.json();
 
             if (res.ok && data.success) {
-                console.log('Login successful:', data);
                 localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
                 window.location.href = '/profile';
             } else {
                 console.error('Login error:', data.message);
@@ -54,6 +57,8 @@ const LoginPage = () => {
         } catch (err) {
             console.error('Server error:', err);
             alert('Server error. Please try again later.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -98,10 +103,15 @@ const LoginPage = () => {
                         </span>
                     </div>
 
-                    <button className={styles.LoginPage_btn} type="submit">Login</button>
+                    <button
+                        className={styles.LoginPage_btn}
+                        type="submit"
+                    >
+                        {isLoading ? 'Logging...' : 'Login'}
+                    </button>
 
                     <p className={styles.LoginPage_p}>Don't have an account?
-                        <span><Link href='/signup' className={styles.LoginPage_p_link} > SignUp </Link></span>
+                        <span><Link href='/signup' className={styles.LoginPage_p_link} >SignUp</Link></span>
                     </p>
                 </form>
             </div>
