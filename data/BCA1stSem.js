@@ -25,6 +25,9 @@ export const BCAFirstSemesterPracticeQuestions = {
             subject: 'MATHEMATICAL FOUNDATION',
             question: 'How are you',
             answer: 'I am fine',
+            point1: '● list',
+            point2: '● list',
+            point3: '● list',
             explanation: 'Mai thik hu',
         },
         {

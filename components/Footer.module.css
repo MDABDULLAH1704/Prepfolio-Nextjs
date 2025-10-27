@@ -1,0 +1,98 @@
+.Footer1 {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    background-color: #202020;
+    font-size: 12px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.Footer1>div:first-child {
+    color: var(--blue-color1);
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Footer1>div:first-child span {
+    color: var(--orange-color1);
+}
+
+.Footer1_link {
+    position: relative;
+    color: rgb(200, 200, 200);
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: color 0.2s ease-in;
+}
+
+.Footer1_link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 1px;
+    background-color: var(--orange-color1);
+    transition: width 0.2s ease-in;
+}
+
+.Footer1_link:hover::after {
+    width: 100%;
+}
+
+.Footer1_link:hover {
+    color: var(--orange-color1);
+}
+
+.Footer2 {
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgb(200, 200, 200);
+    background-color: #202020;
+    font-size: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Footer2 hr {
+    width: 85%;
+    border-top: 1px solid var(--brown-color1);
+    margin: 0 auto;
+}
+
+.Footer2_p1 {
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media(max-width:768px) {
+    .Footer1 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media(max-width:480px) {
+    .Footer1 {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 8px;
+        font-size: 14px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+
+    .Footer1>div:first-child {
+        font-size: 25px;
+    }
+
+    .Footer2 {
+        font-size: 12px;
+    }
+
+    .Footer2_p1 {
+        margin-bottom: 2px;
+    }
+}

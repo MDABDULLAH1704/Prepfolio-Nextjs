@@ -44,7 +44,7 @@ const FAQsDetail1 = ({ marginTopValue }) => {
                     answer='Sharpen your skills and test your knowledge with a wide range of practice questions to help you prepare for exams.'
                 />
                 <Accordion
-                    question='3. Voice Lessons'
+                    question='3. Audio Lessons'
                     answer='Master complex topics and learn efficiently while on the go with our engaging audio lessons.'
                 />
                 <Accordion

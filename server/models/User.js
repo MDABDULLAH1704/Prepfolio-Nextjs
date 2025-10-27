@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema({
         }
     },
     role: { type: String, enum: ['student', 'teacher'], default: 'student' },
+    sessionToken: { type: String, default: null }, // 👈 Add this
 }, { timestamps: true });
 
 

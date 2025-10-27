@@ -1,0 +1,43 @@
+.Refund_h2 {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--brown-color1);
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.refundContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+    color: var(--brown-color2);
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.refundContainer h3 {
+    color: var(--brown-color1);
+    margin-top: 25px;
+}
+
+.refundContainer ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.refundContainer a {
+    color: var(--brown-color1);
+    text-decoration: none;
+}
+
+.refundContainer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media(max-width:376px) {
+    .Refund_h2 {
+        margin-bottom: 12px;
+    }
+}

@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProfilePage.module.css'
 import CourseItemUnlocked from './CourseItemUnlocked.js'
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+import { FaWhatsapp } from 'react-icons/fa';
 
 
 const ProfilePage = () => {
     const [unlockedCourses, setUnlockedCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         fetchPurchasedCourses();
@@ -19,8 +21,6 @@ const ProfilePage = () => {
         try {
             const token = localStorage.getItem('token');
             if (!token) throw new Error('Not logged in');
-            // const userId = localStorage.getItem('userId');
-            // if (!token || !userId) throw new Error('Not logged in');
 
             const res = await fetch(`${baseURL}/api/payment/active-courses`, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -37,6 +37,19 @@ const ProfilePage = () => {
             setLoading(false);
         }
     };
+
+    // openWhatsApp Function 
+    const openWhatsApp = () => {
+        window.open('https://chat.whatsapp.com/EPvgaxBIcwzHkyCwesx7XJ', '_blank');
+    };
+
+    // Toggle hover effect every 1 second
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsHovered(prev => !prev);
+        }, 500);
+        return () => clearInterval(interval);
+    }, []);
 
     if (loading) return <p className={styles.ProfilePage_loading}>Loading Your Course...</p>;
     if (error) return (
@@ -67,6 +80,13 @@ const ProfilePage = () => {
                 ) : (
                     <p className={styles.ProfilePage_p}>No Courses Bought Yet</p>
                 )}
+            </div>
+
+            <div className={`${styles.ProfilePage_whatsapp} 
+            ${isHovered ? styles.ProfilePage_whatsapp_hover : ''}`}
+                onClick={openWhatsApp}>
+                <FaWhatsapp />
+                <p>Join</p>
             </div>
         </>
     )

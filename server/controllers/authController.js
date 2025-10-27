@@ -1,5 +1,6 @@
 import User from '../models/User.js';
-import { generateToken } from '../utils/tokenUtils.js';
+import { generateToken, generateSessionToken } from '../utils/tokenUtils.js';
+
 
 // Signup Function 
 export const signup = async (req, res, next) => {
@@ -63,7 +64,13 @@ export const login = async (req, res, next) => {
             return res.status(401).json({ success: false, message: 'Invalid email or password' });
         }
 
-        const token = generateToken(user._id);
+        // 🔑 Generate and assign new session token
+        const sessionToken = generateSessionToken();
+        user.sessionToken = sessionToken;
+        await user.save();
+
+        // 🔐 Generate JWT containing both userId + sessionToken
+        const token = generateToken(user._id, sessionToken);
 
         res.status(200).json({
             success: true,

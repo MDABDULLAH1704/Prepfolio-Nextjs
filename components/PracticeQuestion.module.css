@@ -1,6 +1,6 @@
 .PracticeQuestion {
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 .PracticeQuestion_h2 {
@@ -11,36 +11,150 @@
 }
 
 .PracticeQuestion_div {
-    background: #fff9f9;
-    border-radius: 8px;
     margin-left: 25px;
     margin-bottom: 20px;
+    line-height: 20px;
 }
 
-.PracticeQuestion_div_h3 {
+.PracticeQuestion_div_h4 {
     margin-bottom: 10px;
     color: var(--brown-color1);
     text-decoration: underline;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.PracticeQuestion_div_p1 {
-    font-weight: 500;
-    color: #222;
+.PracticeQuestion_div_question {
+    color: var(--brown-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.PracticeQuestion_div_p2 {
-    color: #007bff;
-    margin-top: 0.4rem;
+.PracticeQuestion_div_answer {
+    color: var(--brown-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.PracticeQuestion_div_p3 {
-    color: #555;
-    margin-top: 0.3rem;
+.PracticeQuestion_div_points {
+    color: var(--brown-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* ExplanationContainer */
+.ExplanationContainer {}
+
+.ExplanationContainer_explanation {
+    margin-bottom: 6px;
+    color: var(--brown-color2);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.ExplanationContainer_resumeButton,
+.ExplanationContainer_pauseButton,
+.ExplanationContainer_stopButton,
+.ExplanationContainer_speakButton {
+    margin-right: 2px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--red-color1);
+    color: var(--white-color2);
+    padding: 5px 8px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.ExplanationContainer_resumeButton {
+    padding-bottom: 2px;
+}
+
+.ExplanationContainer_resumeButton:hover {
+    background-color: var(--red-color2);
+}
+
+.ExplanationContainer_pauseButton:hover {
+    background-color: var(--red-color2);
+}
+
+.ExplanationContainer_stopButton:hover {
+    background-color: var(--red-color2);
+}
+
+.ExplanationContainer_speakButton:hover {
+    background-color: var(--red-color2);
 }
 
 .PracticeQuestion_NoQuestion {
     text-align: center;
-    color: #777;
-    font-style: italic;
+    color: var(--brown-color2);
+}
+
+
+/* For clickable image link */
+.PracticeQuestion_div_img {
+    color: var(--blue-color1);
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: color 0.1s ease-in;
+}
+
+.PracticeQuestion_div_img:hover {
+    color: var(--blue-color3);
+}
+
+/* ImageModal CSS */
+.ImageModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.ImageModal_content {
+    position: relative;
+    background-color: var(--white-color1);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.ImageModal_close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--white-color1);
+    border: 1px solid var(--black-color1);
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 1px 3px 3px 3px;
+    transition: background-color 0.1s ease-in, border 0.1s ease-in;
+}
+
+.ImageModal_close:hover {
+    background-color: var(--white-color2);
+    border: 1px solid var(--brown-color3);
+}
+
+.ImageModal_img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media(max-width:480px) {
+    .PracticeQuestion_div {
+        margin-left: 12px;
+        margin-right: 2px;
+    }
 }

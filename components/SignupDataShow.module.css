@@ -74,6 +74,34 @@
     gap: 8px;
 }
 
+/* SignupDataShow_3 */
+.SignupDataShow_3 {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.SignupDataShow_3_btn {
+    color: var(--white-color1);
+    background: linear-gradient(to bottom, var(--blue-color1), var(--orange-color1));
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-radius 0.2s ease-in;
+}
+
+.SignupDataShow_3_btn:hover {
+    border-radius: 5px;
+}
+
+.SignupDataShow_3_btn:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
 /* Responsive Design */
 @media(max-width:1024px) {
     .SignupDataShow {

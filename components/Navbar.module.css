@@ -39,6 +39,22 @@
 .navbarRightLink {
     text-decoration: none;
     color: var(--white-color1);
+    position: relative;
+}
+
+.navbarRightLink::after {
+    content: "";
+    position: absolute;
+    left: -1;
+    bottom: -3px;
+    width: 0%;
+    height: 1px;
+    background-color: var(--blue-color1);
+    transition: width 0.2s ease-in;
+}
+
+.navbarRightLink:hover::after {
+    width: 106%;
 }
 
 .navbarRight_Icon {
@@ -49,11 +65,11 @@
     display: flex;
     align-items: center;
     gap: 3px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease-in;
 }
 
 .navbarRight p:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Hamburger menu icon */

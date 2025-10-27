@@ -1,0 +1,36 @@
+.Terms_h2 {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--brown-color1);
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.termsContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+    color: var(--brown-color2);
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.termsContainer h3 {
+    color: var(--brown-color1);
+    margin-top: 25px;
+}
+
+.termsContainer ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.termsContainer a {
+    color: var(--brown-color1);
+    text-decoration: none;
+}
+
+.termsContainer a:hover {
+    text-decoration: underline;
+}

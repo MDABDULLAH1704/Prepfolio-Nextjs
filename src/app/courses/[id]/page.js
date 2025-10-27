@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../../../../components/Navbar'
 import { useParams } from 'next/navigation';
 import CourseDetail from '../../../../components/CourseDetail';
+import { fetchCourseData } from '../../../../utils/fetchCourseDataClient';
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
@@ -13,29 +14,35 @@ const page = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchCourse = async () => {
-            try {
-                const res = await fetch(`${baseURL}/api/courses/${id}`);
-                const data = await res.json();
-
-                if (!res.ok) throw new Error(data.message || 'Course not found');
-
-                setCourse(data.course);
-            } catch (err) {
-                console.error('Error fetching course:', err);
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
+        const getCourse = async () => {
+            const { course, error } = await fetchCourseData(id, false);
+            setCourse(course);
+            setError(error);
+            setLoading(false);
         };
-
-        fetchCourse();
+        getCourse();
     }, [id]);
+
+    // ✅ set page title and description dynamically
+    useEffect(() => {
+        document.title = 'Course Details | Prepfolio';
+
+        const description =
+            'Explore detailed information about each Prepfolio course including PDF Notes, Practice Questions, Audio Lessons, and secure Razorpay payments.';
+
+        let meta = document.querySelector('meta[name="description"]');
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.name = 'description';
+            document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', description);
+    }, []);
 
     if (loading) return (
         <>
             <Navbar />
-            <p style={{ marginTop: '90px', textAlign: 'center', fontSize: '22px', fontFamily: 'monospace' }}>Loading Course...</p>
+            <p style={{ marginTop: '90px', textAlign: 'center', fontSize: '22px', fontFamily: 'monospace' }}>Loading Course Detail...</p>
         </>
     )
 

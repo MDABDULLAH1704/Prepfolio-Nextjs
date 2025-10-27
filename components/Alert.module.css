@@ -11,6 +11,7 @@
     position: fixed;
     top: 61px;
     right: 1px;
+    margin-left: 1px;
 }
 
 .alertBox span {
@@ -31,12 +32,6 @@
 }
 
 /* Responsive Design */
-@media (max-width:768px) {
-    .alertBox {
-        margin-left: 1px;
-    }
-}
-
 @media (max-width:480px) {
     .alertBox {
         top: 56px;

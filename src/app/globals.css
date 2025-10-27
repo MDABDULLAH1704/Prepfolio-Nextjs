@@ -14,13 +14,16 @@
     --orange-color1: #ff6806;
     --orange-color2: #ffae78;
     --orange-color3: #fff1e8;
+    --orange-color4: #ff802b;
     --green-color1: #22C55E;
     --green-color3: #3fd375;
+    --green-color4: #93ffbb;
     --green-color2: #bbffd4;
     --brown-color1: #202020;
     --brown-color2: #454545;
     --brown-color3: #5a5a5a;
     --red-color1: #ff5055;
+    --red-color2: #ff6065;
 }
 
 * {

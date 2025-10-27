@@ -13,13 +13,17 @@ export const getAllCourses = async (req, res) => {
 };
 
 
-// 2. GET single course by ID
+// 2. GET single course by ID (secured)
 export const getCourseById = async (req, res) => {
     try {
         const { id } = req.params;
 
-        // If it's a valid Mongo ObjectId → search by _id
-        // Otherwise → search by urlCourseDetail slug
+        // Ensure user is logged in (protect middleware adds req.user)
+        if (!req.user) {
+            return res.status(401).json({ success: false, message: "Not authorized Ok" });
+        }
+
+        // Find course by ID or slug
         const course = await Course.findOne(
             /^[0-9a-fA-F]{24}$/.test(id)
                 ? { _id: id }
@@ -30,10 +34,30 @@ export const getCourseById = async (req, res) => {
             return res.status(404).json({ success: false, message: "Course not found" });
         }
 
-        res.status(200).json({ success: true, course });
+        // Check if user has purchased this course
+        const user = await User.findById(req.user._id);
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        const now = new Date();
+        const isPurchased = user.boughtCourses.some(
+            (b) => b.courseId.toString() === course._id.toString() && new Date(b.expiry) > now
+        );
+
+        if (!isPurchased) {
+            return res.status(403).json({
+                success: false,
+                message: "You have not purchased this course. Please buy it to access.",
+            });
+        }
+
+        // ✅ Allow access
+        return res.status(200).json({ success: true, course });
     } catch (error) {
-        console.error("Error fetching course:", error);
-        res.status(500).json({ success: false, message: "Server error" });
+        // console.error("Error fetching course:", error);
+        // return res.status(500).json({ success: false, message: "Server error" });
+        console.error("getCourseById Error:", error.message, error.stack);
     }
 };
 
@@ -87,5 +111,29 @@ export const buyCourse = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ success: false, message: 'Server error' });
+    }
+};
+
+
+// 5. Public course preview (no token)
+export const getCoursePreview = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const course = await Course.findOne(
+            /^[0-9a-fA-F]{24}$/.test(id)
+                ? { _id: id }
+                : { urlCourseDetail: id }
+        );
+
+        if (!course) {
+            return res.status(404).json({ success: false, message: "Course not found" });
+        }
+
+        // Optionally hide sensitive fields
+        return res.status(200).json({ success: true, course });
+    } catch (error) {
+        console.error("Error fetching course preview:", error);
+        return res.status(500).json({ success: false, message: "Server error" });
     }
 };

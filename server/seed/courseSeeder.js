@@ -73,8 +73,8 @@ const courses = [
         urlCourse:'bca-5th-semester-course',
         title: "BCA 5th Semester",
         description: "Learn databases, AI with Python, web technologies, and cybersecurity — master data handling, intelligent systems, web development, and secure networking for dynamic, future-ready, and high-impact careers.",
-        offer: 90,
-        newPrice: 50,
+        offer: 92,
+        newPrice: 40,
         oldPrice: 500,
         subjects: [
             {

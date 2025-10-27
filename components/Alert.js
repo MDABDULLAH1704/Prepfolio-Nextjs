@@ -8,7 +8,7 @@ const Alert = ({ message }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(false);
-        }, 15000);
+        }, 20000);
         return () => clearTimeout(timer); // cleanup to avoid memory leaks
     }, []);
 

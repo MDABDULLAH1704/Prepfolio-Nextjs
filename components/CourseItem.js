@@ -39,33 +39,3 @@ const CourseItem = (props) => {
 };
 
 export default CourseItem;
-
-
-
-
-
-
-
-
-
-// handleBuyCourse Function (DEV MODE)
-// const handleBuyCourse = async () => {
-//     try {
-//         const purchasedCourses = JSON.parse(sessionStorage.getItem('purchasedCourses')) || [];
-
-//         // Avoid duplicates
-//         if (!purchasedCourses.find(c => c.id === props.id)) {
-//             purchasedCourses.push({
-//                 id: props.id,
-//                 title: props.title,
-//                 description: props.description,
-//             });
-//             sessionStorage.setItem('purchasedCourses', JSON.stringify(purchasedCourses));
-//         }
-
-//         alert('Course unlocked! ✅');
-//     } catch (error) {
-//         console.error(error);
-//         alert('Something went wrong while unlocking the course.');
-//     }
-// };

@@ -22,6 +22,7 @@ export const BCAThirdSemesterNotesPDFs = {
 export const BCAThirdSemesterPracticeQuestions = {
     '68e93b977befe575bac0a810': [
         {
+            subject: 'FUNDAMENTALS OF MANAGEMENT & BUSINESS ACCOUNTING',
             question: 'How are you 3',
             answer: 'I am fine 3',
             explanation: 'Mai thik hu 3',
