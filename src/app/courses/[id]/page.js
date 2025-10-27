@@ -7,7 +7,7 @@ import { fetchCourseData } from '../../../../utils/fetchCourseDataClient';
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
-const page = () => {
+const Page = () => {
     const { id } = useParams(); // get dynamic param
     const [course, setCourse] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -72,4 +72,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
