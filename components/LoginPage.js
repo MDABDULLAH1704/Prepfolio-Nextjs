@@ -110,7 +110,7 @@ const LoginPage = () => {
                         {isLoading ? 'Logging...' : 'Login'}
                     </button>
 
-                    <p className={styles.LoginPage_p}>Don't have an account?
+                    <p className={styles.LoginPage_p}>Do not have an account?
                         <span><Link href='/signup' className={styles.LoginPage_p_link} >SignUp</Link></span>
                     </p>
                 </form>

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './SignupDataShow.module.css';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -17,10 +17,15 @@ const SignupDataShow = () => {
     const [loggingOut, setLoggingOut] = useState(false);
 
     // autoLogout function 
-    const autoLogout = () => {
+    // const autoLogout = () => {
+    //     localStorage.clear();
+    //     router.push('/login');
+    // };
+    // ✅ Wrapped in useCallback to make it stable
+    const autoLogout = useCallback(() => {
         localStorage.clear();
         router.push('/login');
-    };
+    }, [router]);
 
     // fetchProfile function 
     useEffect(() => {
@@ -54,7 +59,7 @@ const SignupDataShow = () => {
             }
         };
         fetchProfile();
-    }, [router]);
+    }, [autoLogout]);
 
     // For AOS Animation
     useEffect(() => {

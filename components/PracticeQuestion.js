@@ -5,6 +5,7 @@ import { BCAFirstSemesterPracticeQuestions } from '../data/BCA1stSem';
 import { BCAThirdSemesterPracticeQuestions } from '../data/BCA3rdSem';
 import { BCAFifthSemesterPracticeQuestions } from '../data/BCA5thSem';
 import Accordion2 from './Accordion2';
+import Image from 'next/image';
 
 
 const PracticeQuestion = ({ _id }) => {
@@ -161,7 +162,13 @@ const PracticeQuestion = ({ _id }) => {
                         <button onClick={closeImageModal} className={styles.ImageModal_close}>
                             ❌
                         </button>
-                        <img src={selectedImage} alt='Answer' className={styles.ImageModal_img} />
+                        <Image
+                            src={selectedImage}
+                            alt='Image Answer'
+                            width={500}
+                            height={300}
+                            className={styles.ImageModal_img}
+                        />
                     </div>
                 </div>
             )}
