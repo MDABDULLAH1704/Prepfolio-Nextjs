@@ -12,7 +12,7 @@ const CoursePage = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const res = await fetch(`${baseURL}/api/courses/all`);
+                const res = await fetch(`${baseURL}/courses/all`);
                 const data = await res.json();
 
                 if (!res.ok || !data.success) {

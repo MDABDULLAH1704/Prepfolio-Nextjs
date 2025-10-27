@@ -28,7 +28,7 @@ const SignupDataShow = () => {
             const token = localStorage.getItem('token');
             if (!token) return autoLogout();
             try {
-                const res = await fetch(`${baseURL}/api/auth/profile`, {
+                const res = await fetch(`${baseURL}/auth/profile`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

@@ -5,11 +5,11 @@ export const fetchCourseData = async (id, requireAuth = false) => {
         const headers = { "Content-Type": "application/json" };
         const token = localStorage.getItem("token");
 
-        let endpoint = `${baseURL}/api/courses/preview/${id}`;
+        let endpoint = `${baseURL}/courses/preview/${id}`;
         if (requireAuth) {
             if (!token) throw new Error("Not logged in");
             headers.Authorization = `Bearer ${token}`;
-            endpoint = `${baseURL}/api/courses/${id}`;
+            endpoint = `${baseURL}/courses/${id}`;
         }
 
         console.log("📡 Fetching course from:", endpoint);

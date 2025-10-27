@@ -22,7 +22,7 @@ const Page = () => {
                 if (!token) throw new Error('Not logged in');
 
                 // 1️⃣ Check user's purchased courses
-                const resPurchased = await fetch(`${baseURL}/api/payment/active-courses`, {
+                const resPurchased = await fetch(`${baseURL}/payment/active-courses`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 

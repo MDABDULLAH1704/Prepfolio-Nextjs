@@ -24,7 +24,7 @@ const RazorpayCheckoutButton = ({ amount, courseId, courseTitle }) => {
         setLoading(true);
 
         try {
-            const orderRes = await fetch(`${baseURL}/api/payment/create-order`, {
+            const orderRes = await fetch(`${baseURL}/payment/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const RazorpayCheckoutButton = ({ amount, courseId, courseTitle }) => {
                 order_id: orderData.orderId,
                 handler: async function (response) {
                     try {
-                        const verifyRes = await fetch(`${baseURL}/api/payment/verify-payment`, {
+                        const verifyRes = await fetch(`${baseURL}/payment/verify-payment`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

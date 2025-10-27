@@ -22,7 +22,7 @@ const ProfilePage = () => {
             const token = localStorage.getItem('token');
             if (!token) throw new Error('Not logged in');
 
-            const res = await fetch(`${baseURL}/api/payment/active-courses`, {
+            const res = await fetch(`${baseURL}/payment/active-courses`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
