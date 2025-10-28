@@ -1,7 +1,29 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   }
 }
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": [
+//         "src/*"
+//       ]
+//     },
+//     "target": "ESNext",
+//     "module": "ESNext",
+//     "moduleResolution": "Node",
+//     "allowJs": true,
+//     "resolveJsonModule": true,
+//     "jsx": "preserve",
+//     "strict": true
+//   },
+//   "exclude": [
+//     "node_modules"
+//   ]
+// }

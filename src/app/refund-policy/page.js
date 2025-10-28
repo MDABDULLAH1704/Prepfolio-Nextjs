@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import RefundPolicy from '../../../components/RefundPolicy'
+import Navbar from '@/components/Navbar'
+import RefundPolicy from '@/components/RefundPolicy'
 
 
 export const metadata = {

@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import PrivacyPolicy from '../../../components/PrivacyPolicy'
+import Navbar from '@/components/Navbar'
+import PrivacyPolicy from '@/components/PrivacyPolicy'
 
 
 export const metadata = {

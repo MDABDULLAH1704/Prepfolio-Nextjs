@@ -1,4 +1,4 @@
-node server/seed/courseSeeder.js 
+npm run seed:courses {When run this command, add export default in database.js} 
 
 npm install react-icons --save
 npm install react-router-dom

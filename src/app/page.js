@@ -1,7 +1,7 @@
-import Hero from "../../components/Hero";
-import Navbar from "../../components/Navbar";
-import FAQsDetail from "../../components/FAQsDetail1";
-import Footer from "../../components/Footer";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import FAQsDetail1 from "@/components/FAQsDetail1";
+import Footer from "@/components/Footer";
 
 
 export const metadata = {
@@ -35,7 +35,7 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
-      <FAQsDetail marginTopValue='100px' />
+      <FAQsDetail1 marginTopValue='100px' />
       <Footer />
     </>
   );

@@ -4,12 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "dev:frontend": "next dev --turbopack",
-    "dev:backend": "node server/index.js",
+    "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "seed:courses": "node src/server/seed/courseSeeder.js"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -30,7 +29,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
     "tailwindcss": "^4"

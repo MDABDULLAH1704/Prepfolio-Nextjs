@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import SignupPage from '../../../components/SignupPage'
-import Alert from '../../../components/Alert'
+import Navbar from '@/components/Navbar'
+import SignupPage from '@/components/SignupPage'
+import Alert from '@/components/Alert'
 
 
 export const metadata = {

@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import FAQsDetail1 from '../../../components/FAQsDetail1'
-import FAQsDetail2 from '../../../components/FAQsDetail2'
-import Footer from '../../../components/Footer';
+import Navbar from '@/components/Navbar'
+import FAQsDetail1 from '@/components/FAQsDetail1'
+import FAQsDetail2 from '@/components/FAQsDetail2'
+import Footer from '@/components/Footer';
 
 
 export const metadata = {

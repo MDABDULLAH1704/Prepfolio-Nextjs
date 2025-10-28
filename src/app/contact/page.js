@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import ContactPage from '../../../components/ContactPage'
+import Navbar from '@/components/Navbar'
+import ContactPage from '@/components/ContactPage'
 
 
 export const metadata = {

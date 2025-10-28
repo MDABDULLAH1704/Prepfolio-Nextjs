@@ -1,9 +1,9 @@
 'use client';
 import React, { useState, useEffect } from 'react'
-import Navbar from '../../../../components/Navbar'
+import Navbar from '@/components/Navbar'
 import { useParams } from 'next/navigation';
-import CourseDetail from '../../../../components/CourseDetail';
-import { fetchCourseData } from '../../../../utils/fetchCourseDataClient';
+import CourseDetail from '@/components/CourseDetail';
+import { fetchCourseData } from '@/utils/fetchCourseDataClient';
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 

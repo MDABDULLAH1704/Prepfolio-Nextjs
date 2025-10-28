@@ -1,11 +1,10 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../../../components/Navbar';
+import Navbar from '@/components/Navbar';
 import { useParams, useRouter } from 'next/navigation';
-import ProfileCourseDetail from '../../../../components/ProfileCourseDetail';
+import ProfileCourseDetail from '@/components/ProfileCourseDetail';
 import { FaArrowLeft } from 'react-icons/fa';
-import { fetchCourseData } from '../../../../utils/fetchCourseDataClient';
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+import { fetchCourseData } from '@/utils/fetchCourseDataClient';
 
 const Page = () => {
     const { id } = useParams();
@@ -16,13 +15,17 @@ const Page = () => {
     const [hasAccess, setHasAccess] = useState(false);
 
     useEffect(() => {
+        let mounted = true;
         const fetchProfileCourse = async () => {
             try {
+                setLoading(true);
+                setError(null);
+
                 const token = localStorage.getItem('token');
                 if (!token) throw new Error('Not logged in');
 
-                // 1️⃣ Check user's purchased courses
-                const resPurchased = await fetch(`${baseURL}/payment/active-courses`, {
+                // 1. fetch purchased courses
+                const resPurchased = await fetch('/api/payment/active-courses', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -31,9 +34,7 @@ const Page = () => {
                     throw new Error(purchasedData.message || 'Failed to fetch user courses');
 
                 const userCourses = purchasedData.courses || [];
-                const isPurchased = userCourses.some(
-                    (c) => c._id === id || c.urlCourseDetail === id
-                );
+                const isPurchased = userCourses.some((c) => c._id === id || c.urlCourseDetail === id);
 
                 if (!isPurchased) {
                     setHasAccess(false);
@@ -42,28 +43,26 @@ const Page = () => {
 
                 setHasAccess(true);
 
-                // 2️⃣ Fetch actual course detail (protected)
-                const { course, error } = await fetchCourseData(id, true);
-                if (error) throw new Error(error);
-                setCourse(course);
+                // 2. fetch protected course detail
+                const { course: fetchedCourse, error: fetchError } = await fetchCourseData(id, true);
+                if (fetchError) throw new Error(fetchError);
+
+                if (mounted) setCourse(fetchedCourse);
             } catch (err) {
                 console.error(err);
-                setError(err.message);
+                if (mounted) setError(err.message);
             } finally {
-                setLoading(false);
+                if (mounted) setLoading(false);
             }
         };
 
         fetchProfileCourse();
+        return () => { mounted = false; };
     }, [id]);
 
-    // ✅ set page title and description dynamically
     useEffect(() => {
         document.title = 'My Course | Prepfolio';
-
-        const description =
-            'View your purchased or enrolled courses on Prepfolio, including PDF Notes, Practice Questions, and Audio Lessons — all accessible in your profile dashboard.';
-
+        const description = 'View your purchased or enrolled courses on Prepfolio...';
         let meta = document.querySelector('meta[name="description"]');
         if (!meta) {
             meta = document.createElement('meta');
@@ -73,8 +72,18 @@ const Page = () => {
         meta.setAttribute('content', description);
     }, []);
 
+    if (loading) {
+        return (
+            <>
+                <Navbar />
+                <div style={{ marginTop: '90px', textAlign: 'center' }}>
+                    <h2>Loading... ⏳</h2>
+                </div>
+            </>
+        );
+    }
 
-    if (error)
+    if (error) {
         return (
             <>
                 <Navbar />
@@ -112,6 +121,19 @@ const Page = () => {
                 </div>
             </>
         );
+    }
+
+    // If no course after successful fetch — show friendly message
+    if (!course) {
+        return (
+            <>
+                <Navbar />
+                <div style={{ marginTop: '90px', textAlign: 'center' }}>
+                    <h2>Course not available. If you believe this is an error, please contact support.</h2>
+                </div>
+            </>
+        );
+    }
 
     return (
         <>

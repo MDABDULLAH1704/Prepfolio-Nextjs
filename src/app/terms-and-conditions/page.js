@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import TermsConditions from '../../../components/TermsConditions'
+import Navbar from '@/components/Navbar'
+import TermsConditions from '@/components/TermsConditions'
 
 
 export const metadata = {

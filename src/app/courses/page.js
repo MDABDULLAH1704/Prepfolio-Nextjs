@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../../../components/Navbar'
-import CoursePage from '../../../components/CoursePage'
+import Navbar from '@/components/Navbar'
+import CoursePage from '@/components/CoursePage'
 
 
 export const metadata = {
