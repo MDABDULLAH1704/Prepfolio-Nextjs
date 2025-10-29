@@ -4,38 +4,49 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProfilePage.module.css'
 import CourseItemUnlocked from './CourseItemUnlocked.js'
 import { FaWhatsapp } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
 
 
 const ProfilePage = () => {
+    const router = useRouter();
     const [unlockedCourses, setUnlockedCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
+        const fetchPurchasedCourses = async () => {
+            try {
+                const token = localStorage.getItem('token');
+
+                if (!token) {
+                    router.push('/login'); // ✅ Redirect if not logged in
+                    return;
+                }
+
+                const res = await fetch('/api/payment/active-courses', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
+                const data = await res.json();
+
+                if (!res.ok || !data.success) {
+                    throw new Error(data.message || 'Failed to fetch courses');
+                }
+
+                setUnlockedCourses(data.courses || []);
+            } catch (err) {
+                console.error(err);
+                setError(err.message || 'Something went wrong');
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchPurchasedCourses();
-    }, []);
-
-    const fetchPurchasedCourses = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            if (!token) throw new Error('Not logged in');
-
-            const res = await fetch(`/api/payment/active-courses`, {
-                headers: { Authorization: `Bearer ${token}` },
-            });
-
-            const data = await res.json();
-            if (!res.ok || !data.success) throw new Error(data.message || 'Failed to fetch courses');
-
-            setUnlockedCourses(data.courses || []);
-        } catch (err) {
-            console.error(err);
-            setError(err.message || 'Something went wrong');
-        } finally {
-            setLoading(false);
-        }
-    };
+    }, [router]);
 
     // openWhatsApp Function 
     const openWhatsApp = () => {
@@ -53,7 +64,7 @@ const ProfilePage = () => {
     if (loading) return <p className={styles.ProfilePage_loading}>Loading Your Course...</p>;
     if (error) return (
         <>
-            <h2 className={styles.ProfilePage_h2}>Your Courses</h2>
+            <h2 className={styles.ProfilePage_h2} style={{ marginTop: '80px', fontFamily: 'monospace', fontSize: '28px' }}>Your Courses</h2>
             <p className={styles.ProfilePage_p}>No Courses Bought Yet</p>
             <p className={styles.CoursePage_courseNotFound}>No Course ❌</p>
         </>

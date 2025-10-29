@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
 const SignupDataShow = () => {
@@ -16,48 +15,64 @@ const SignupDataShow = () => {
     const [error, setError] = useState(null);
     const [loggingOut, setLoggingOut] = useState(false);
 
-    // autoLogout function 
-    // const autoLogout = () => {
-    //     localStorage.clear();
-    //     router.push('/login');
-    // };
-    // ✅ Wrapped in useCallback to make it stable
-    const autoLogout = useCallback(() => {
-        localStorage.clear();
+    /**
+    * ✅ Auto logout helper
+    * Clears localStorage, optionally alerts, and redirects to /login
+    */
+    const autoLogout = useCallback((showAlert = false) => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        if (showAlert) {
+            alert('You were logged out automatically because your account was accessed from another device.');
+        }
         router.push('/login');
     }, [router]);
 
-    // fetchProfile function 
+    /**
+     * ✅ Fetch profile and handle session expiration / invalid token
+     */
     useEffect(() => {
         const fetchProfile = async () => {
             const token = localStorage.getItem('token');
             if (!token) return autoLogout();
+
             try {
-                const res = await fetch(`/api/auth`, {
+                const res = await fetch('/api/auth', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
+                        Authorization: `Bearer ${token}`,
                     },
                 });
-                // Detect 401 or expired session
-                if (res.status === 401) return autoLogout();
-                const data = await res.json();
-                if (data.message?.includes('Session expired')) {
-                    alert('Your account was logged in from another device. You have been logged out for security.');
-                    autoLogout();
+
+                // ⚠️ Handle unauthorized / invalid token
+                if (res.status === 401) {
+                    return autoLogout(true);
                 }
-                if (!res.ok) throw new Error(data.message || 'Failed to fetch profile');
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    // Detect custom session expiration message
+                    if (data.message?.includes('Session expired')) {
+                        return autoLogout(true);
+                    }
+                    throw new Error(data.message || 'Failed to fetch profile');
+                }
+
                 setUser(data.user);
             } catch (err) {
                 console.error('Profile fetch error:', err);
+                setError('Something went wrong while loading your profile.');
+                // Fallback auto-logout for any auth-related errors
                 if (err.message.includes('Session expired') || err.message.includes('401')) {
-                    autoLogout();
+                    autoLogout(true);
                 }
             } finally {
                 setLoading(false);
             }
         };
+
         fetchProfile();
     }, [autoLogout]);
 

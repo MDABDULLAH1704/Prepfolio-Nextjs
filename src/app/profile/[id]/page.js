@@ -15,17 +15,13 @@ const Page = () => {
     const [hasAccess, setHasAccess] = useState(false);
 
     useEffect(() => {
-        let mounted = true;
         const fetchProfileCourse = async () => {
             try {
-                setLoading(true);
-                setError(null);
-
                 const token = localStorage.getItem('token');
                 if (!token) throw new Error('Not logged in');
 
-                // 1. fetch purchased courses
-                const resPurchased = await fetch('/api/payment/active-courses', {
+                // 1️⃣ Check user's purchased courses
+                const resPurchased = await fetch(`/api/payment/active-courses`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -34,7 +30,9 @@ const Page = () => {
                     throw new Error(purchasedData.message || 'Failed to fetch user courses');
 
                 const userCourses = purchasedData.courses || [];
-                const isPurchased = userCourses.some((c) => c._id === id || c.urlCourseDetail === id);
+                const isPurchased = userCourses.some(
+                    (c) => c._id === id || c.urlCourseDetail === id
+                );
 
                 if (!isPurchased) {
                     setHasAccess(false);
@@ -43,21 +41,19 @@ const Page = () => {
 
                 setHasAccess(true);
 
-                // 2. fetch protected course detail
-                const { course: fetchedCourse, error: fetchError } = await fetchCourseData(id, true);
-                if (fetchError) throw new Error(fetchError);
-
-                if (mounted) setCourse(fetchedCourse);
+                // 2️⃣ Fetch actual course detail (protected)
+                const { course, error } = await fetchCourseData(id, false);
+                if (error) throw new Error(error);
+                setCourse(course);
             } catch (err) {
                 console.error(err);
-                if (mounted) setError(err.message);
+                setError(err.message);
             } finally {
-                if (mounted) setLoading(false);
+                setLoading(false);
             }
         };
 
         fetchProfileCourse();
-        return () => { mounted = false; };
     }, [id]);
 
     useEffect(() => {
@@ -76,8 +72,8 @@ const Page = () => {
         return (
             <>
                 <Navbar />
-                <div style={{ marginTop: '90px', textAlign: 'center' }}>
-                    <h2>Loading... ⏳</h2>
+                <div style={{ marginTop: '90px', textAlign: 'center', fontSize: '25px', fontFamily: 'monospace' }}>
+                    <p>Loading...⏳</p>
                 </div>
             </>
         );

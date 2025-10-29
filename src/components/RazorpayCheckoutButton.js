@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import styles from './RazorpayCheckoutButton.module.css';
 import Script from 'next/script';
 import { useRouter } from 'next/navigation';
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const RazorpayCheckoutButton = ({ amount, courseId, courseTitle }) => {
     const router = useRouter();

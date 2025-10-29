@@ -45,47 +45,93 @@ export async function getCoursePreview(id) {
 ================================ */
 export async function getCourseById(req, id, userId) {
     try {
+        // ✅ 1. Authorization check
         if (!userId) {
-            return NextResponse.json({ success: false, message: 'Not authorized' }, { status: 401 });
+            return NextResponse.json(
+                { success: false, message: 'Not authorized' },
+                { status: 401 }
+            );
         }
 
-        // load the user and its boughtCourses (populate course)
-        const user = await User.findById(userId).populate('boughtCourses.courseId');
+        // ✅ 2. Load user and their purchased courses
+        const user = await User.findById(userId).populate({
+            path: 'boughtCourses.courseId',
+            select: '_id title urlCourseDetail',
+        });
+
         if (!user) {
-            return NextResponse.json({ success: false, message: 'User not found' }, { status: 404 });
+            return NextResponse.json(
+                { success: false, message: 'User not found' },
+                { status: 404 }
+            );
         }
 
+        // ✅ 3. Find the course (by ID or slug)
         const course = await Course.findOne(
-            /^[0-9a-fA-F]{24}$/.test(id) ? { _id: id } : { urlCourseDetail: id }
+            /^[0-9a-fA-F]{24}$/.test(id)
+                ? { _id: id }
+                : { urlCourseDetail: id }
         );
 
         if (!course) {
-            return NextResponse.json({ success: false, message: 'Course not found' }, { status: 404 });
+            return NextResponse.json(
+                { success: false, message: 'Course not found' },
+                { status: 404 }
+            );
         }
 
-        // check purchase & expiry
+        // ✅ 4. Verify purchase & expiry
         const now = new Date();
         const isPurchased = user.boughtCourses.some((b) => {
             const courseObj = b.courseId;
             if (!courseObj) return false;
             const matches = courseObj._id.toString() === course._id.toString();
-            const notExpired = new Date(b.expiry) > now;
+            const notExpired = b.expiry ? new Date(b.expiry) > now : true;
             return matches && notExpired;
         });
 
         if (!isPurchased) {
-            return NextResponse.json({
-                success: false,
-                message: 'You have not purchased this course. Please buy it to access.',
-            }, { status: 403 });
+            return NextResponse.json(
+                {
+                    success: false,
+                    message: 'You have not purchased this course. Please buy it to access.',
+                },
+                { status: 403 }
+            );
         }
 
-        // Success
-        return NextResponse.json({ success: true, course });
+        // ✅ 5. Return success (no sensitive data)
+        return NextResponse.json({
+            success: true,
+            course,
+        });
+
     } catch (err) {
-        console.error('getCourseById Error:', err);
-        // If it's a known operational error you can return more specific code
-        return NextResponse.json({ success: false, message: 'Server error' }, { status: 500 });
+        console.error('❌ getCourseById Error:', err);
+
+        // ✅ 6. Handle known Mongoose or JWT errors gracefully
+        const isMongooseError = err.name === 'CastError' || err.name === 'ValidationError';
+        const isAuthError = err.name === 'JsonWebTokenError' || err.name === 'TokenExpiredError';
+
+        if (isAuthError) {
+            return NextResponse.json(
+                { success: false, message: 'Invalid or expired token' },
+                { status: 401 }
+            );
+        }
+
+        if (isMongooseError) {
+            return NextResponse.json(
+                { success: false, message: 'Invalid course ID format' },
+                { status: 400 }
+            );
+        }
+
+        // ✅ Default: Internal Server Error
+        return NextResponse.json(
+            { success: false, message: 'Server error, please try again later' },
+            { status: 500 }
+        );
     }
 }
 

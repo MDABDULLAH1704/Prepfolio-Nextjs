@@ -13,13 +13,6 @@ export function generateToken(id, sessionToken) {
 }
 
 /**
- * 🧩 Generate random session token for single-device login
- */
-export function generateSessionToken() {
-    return crypto.randomBytes(32).toString('hex');
-}
-
-/**
  * 🧩 verifyToken token 
 **/
 export const verifyToken = (token) => {
@@ -29,6 +22,14 @@ export const verifyToken = (token) => {
         throw new Error('Invalid or expired token');
     }
 };
+
+/**
+ * 🧩 Generate random session token for single-device login
+ */
+export function generateSessionToken() {
+    return crypto.randomBytes(32).toString('hex');
+}
+
 
 /**
  * 🌍 Define base API URL (useful for frontend fetch calls)

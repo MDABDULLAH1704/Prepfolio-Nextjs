@@ -104,6 +104,11 @@ export async function handleGetProfile(req) {
             return NextResponse.json({ success: false, message: 'User not found' }, { status: 404 });
         }
 
+        // ✅ Check sessionToken validity
+        if (user.sessionToken !== decoded.sessionToken) {
+            return NextResponse.json({ success: false, message: 'Session expired. Please log in again.' }, { status: 401 });
+        }
+
         return NextResponse.json({ success: true, user }, { status: 200 });
     } catch (error) {
         console.error('Profile error:', error);
