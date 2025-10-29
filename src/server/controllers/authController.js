@@ -17,7 +17,7 @@ export async function handleSignup({ name, email, phone, gender, course, college
         }
 
         if (!/^(?=.*[!@#$%^&*])(?=.{6,15})/.test(password)) {
-            return NextResponse.json({ success: false, message: 'Password must be 6–15 characters and include a special character' }, { status: 400 });
+            return NextResponse.json({ success: false, message: 'Password must be 6-15 characters and include a special character' }, { status: 400 });
         }
 
         const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
