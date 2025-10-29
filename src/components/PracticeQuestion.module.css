@@ -56,10 +56,14 @@
     border-radius: 3px;
     background-color: var(--red-color1);
     color: var(--white-color2);
-    padding: 5px 8px;
+    padding: 6px 8px;
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
+}
+
+.ExplanationContainer_resumeButton {
+    padding-bottom: 3px;
 }
 
 .ExplanationContainer_resumeButton:hover {
@@ -152,5 +156,9 @@
     .PracticeQuestion_div {
         margin-left: 12px;
         margin-right: 2px;
+    }
+
+    .ExplanationContainer_resumeButton {
+        padding-bottom: 3px;
     }
 }
