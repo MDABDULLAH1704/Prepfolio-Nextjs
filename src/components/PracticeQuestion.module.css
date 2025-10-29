@@ -62,10 +62,6 @@
     cursor: pointer;
 }
 
-.ExplanationContainer_resumeButton {
-    padding-bottom: 3px;
-}
-
 .ExplanationContainer_resumeButton:hover {
     background-color: var(--red-color2);
 }
@@ -156,9 +152,5 @@
     .PracticeQuestion_div {
         margin-left: 12px;
         margin-right: 2px;
-    }
-
-    .ExplanationContainer_resumeButton {
-        padding-bottom: 3px;
     }
 }
