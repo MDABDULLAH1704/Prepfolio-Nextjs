@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+import { API_BASE_URL } from '@/server/utils/apiBase';
 
 
 const LoginPage = () => {
@@ -38,7 +38,8 @@ const LoginPage = () => {
         setIsLoading(true);
 
         try {
-            const res = await fetch(`/api/auth`, {
+            // const res = await fetch(`/api/auth`, {
+            const res = await fetch(`${API_BASE_URL}/auth`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ...formData, action: 'login' }),

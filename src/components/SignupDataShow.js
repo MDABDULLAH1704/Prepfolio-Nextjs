@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { API_BASE_URL } from '@/server/utils/apiBase';
 
 
 const SignupDataShow = () => {
@@ -37,7 +38,8 @@ const SignupDataShow = () => {
             if (!token) return autoLogout();
 
             try {
-                const res = await fetch('/api/auth', {
+                // const res = await fetch('/api/auth', {
+                const res = await fetch(`${API_BASE_URL}/auth`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

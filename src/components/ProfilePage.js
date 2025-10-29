@@ -5,6 +5,7 @@ import styles from './ProfilePage.module.css'
 import CourseItemUnlocked from './CourseItemUnlocked.js'
 import { FaWhatsapp } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
+import { API_BASE_URL } from '@/server/utils/apiBase';
 
 
 const ProfilePage = () => {
@@ -24,7 +25,8 @@ const ProfilePage = () => {
                     return;
                 }
 
-                const res = await fetch('/api/payment/active-courses', {
+                // const res = await fetch('/api/payment/active-courses', {
+                const res = await fetch(`${API_BASE_URL}/payment/active-courses`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

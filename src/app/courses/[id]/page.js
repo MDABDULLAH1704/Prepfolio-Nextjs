@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar'
 import { useParams } from 'next/navigation';
 import CourseDetail from '@/components/CourseDetail';
 import { fetchCourseData } from '@/utils/fetchCourseDataClient';
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
 const Page = () => {

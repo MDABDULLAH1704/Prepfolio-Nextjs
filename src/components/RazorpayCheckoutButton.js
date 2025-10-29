@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import styles from './RazorpayCheckoutButton.module.css';
 import Script from 'next/script';
 import { useRouter } from 'next/navigation';
+import { API_BASE_URL } from '@/server/utils/apiBase';
+
 
 const RazorpayCheckoutButton = ({ amount, courseId, courseTitle }) => {
     const router = useRouter();
@@ -23,7 +25,8 @@ const RazorpayCheckoutButton = ({ amount, courseId, courseTitle }) => {
         setLoading(true);
 
         try {
-            const orderRes = await fetch(`/api/payment/create-order`, {
+            // const orderRes = await fetch(`/api/payment/create-order`, {
+            const orderRes = await fetch(`${API_BASE_URL}/payment/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,7 +62,8 @@ const RazorpayCheckoutButton = ({ amount, courseId, courseTitle }) => {
                 order_id: orderData.orderId,
                 handler: async function (response) {
                     try {
-                        const verifyRes = await fetch(`/api/payment/verify-payment`, {
+                        // const verifyRes = await fetch(`/api/payment/verify-payment`, {
+                        const verifyRes = await fetch(`${API_BASE_URL}/payment/verify-payment`, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

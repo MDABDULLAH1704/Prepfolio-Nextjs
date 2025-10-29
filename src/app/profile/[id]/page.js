@@ -5,6 +5,8 @@ import { useParams, useRouter } from 'next/navigation';
 import ProfileCourseDetail from '@/components/ProfileCourseDetail';
 import { FaArrowLeft } from 'react-icons/fa';
 import { fetchCourseData } from '@/utils/fetchCourseDataClient';
+import { API_BASE_URL } from '@/server/utils/apiBase';
+
 
 const Page = () => {
     const { id } = useParams();
@@ -21,7 +23,8 @@ const Page = () => {
                 if (!token) throw new Error('Not logged in');
 
                 // 1️⃣ Check user's purchased courses
-                const resPurchased = await fetch(`/api/payment/active-courses`, {
+                // const resPurchased = await fetch(`/api/payment/active-courses`, {
+                const resPurchased = await fetch(`${API_BASE_URL}/payment/active-courses`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 

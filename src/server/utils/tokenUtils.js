@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
+import { API_BASE_URL } from './apiBase';
 
 /**
  * 🔐 Generate JWT token with optional sessionToken
@@ -35,5 +36,6 @@ export function generateSessionToken() {
  * 🌍 Define base API URL (useful for frontend fetch calls)
  * In Next.js App Router, no need for hard-coded ports.
  */
-export const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
+export { API_BASE_URL };
+// export const API_BASE_URL =
+//     process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';

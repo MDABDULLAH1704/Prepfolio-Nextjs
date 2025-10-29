@@ -1,4 +1,7 @@
 // src/utils/fetchCourseDataClient.js (or wherever you keep it)
+import { API_BASE_URL } from "@/server/utils/apiBase";
+
+
 export const fetchCourseData = async (id, requireAuth = false) => {
     try {
         const headers = { 'Content-Type': 'application/json' };
@@ -9,7 +12,8 @@ export const fetchCourseData = async (id, requireAuth = false) => {
             headers.Authorization = `Bearer ${token}`;
         }
 
-        const endpoint = requireAuth ? `/api/courses/${id}` : `/api/courses/preview/${id}`;
+        // const endpoint = requireAuth ? `/api/courses/${id}` : `/api/courses/preview/${id}`;
+        const endpoint = requireAuth ? `${API_BASE_URL}/courses/${id}` : `${API_BASE_URL}/courses/preview/${id}`;
 
         const res = await fetch(endpoint, { headers });
         console.log('📦 Response status:', res.status);

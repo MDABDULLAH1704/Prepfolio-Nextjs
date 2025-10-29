@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './CoursePage.module.css'
 import CourseItem from './CourseItem';
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
+import { API_BASE_URL } from '@/server/utils/apiBase';
+
 
 const CoursePage = () => {
     const [courses, setCourses] = useState([]);
@@ -12,7 +13,8 @@ const CoursePage = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const res = await fetch(`/api/courses/all`);
+                // const res = await fetch(`/api/courses/all`);
+                const res = await fetch(`${API_BASE_URL}/courses/all`);
                 const data = await res.json();
 
                 if (!res.ok || !data.success) {
