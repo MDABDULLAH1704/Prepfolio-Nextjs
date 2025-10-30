@@ -4,6 +4,7 @@ import styles from './Hero.module.css'
 import Link from 'next/link'
 import { FaArrowRight } from 'react-icons/fa'
 import HeroVideoSection from './HeroVideoSection'
+import MatrixBackground from './MatrixBackground'
 import Loader from './Loader'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -50,7 +51,8 @@ const Hero = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <HeroVideoSection />
+                // <HeroVideoSection />
+                <MatrixBackground />
             )}
 
             {isVisible && !isLoading && (
