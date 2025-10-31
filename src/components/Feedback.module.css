@@ -1,0 +1,180 @@
+.Feedback {
+    max-width: 400px;
+    margin: 70px auto 0px auto;
+    padding: 8px 20px;
+    background-color: var(--white-color0);
+    border: 1px solid var(--white-color3);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.1s ease-in;
+}
+
+.Feedback:hover {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.Feedback_h2 {
+    text-align: center;
+    font-size: 30px;
+    color: var(--black-color1);
+    margin-bottom: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Feedback span {
+    color: var(--orange-color1);
+}
+
+.Feedback_form {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Feedback_form_label1,
+.Feedback_form_label2 {
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: var(--brown-color1);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Feedback_form_input,
+.Feedback_form_textarea {
+    padding: 8px 6px;
+    margin-bottom: 10px;
+    border: 1px solid var(--white-color4);
+    background-color: var(--white-color1);
+    color: var(--brown-color2);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.Feedback_form_input:focus,
+.Feedback_form_textarea:focus {
+    outline: none;
+    border-color: var(--blue-color1);
+}
+
+.Feedback_form_textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.Feedback_form_div1 {
+    display: flex;
+    justify-content: space-between;
+    color: var(--red-color1);
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Feedback_form_div1 div span {
+    color: var(--black-color1);
+}
+
+.Feedback_form_div2_error {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--red-color1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Feedback_form_div3 {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.Feedback_form_div3_btnSubmit {
+    color: var(--white-color0);
+    background-color: var(--blue-color1);
+    padding: 10px 22px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in, border-radius 0.2s ease-in;
+}
+
+.Feedback_form_div3_btnSubmit:hover {
+    background-color: var(--orange-color1);
+    border-radius: 20px;
+}
+
+.Feedback_form_div3_btnSubmit_disabled {
+    background-color: var(--brown-color2);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.Feedback_form_div3_btnSubmit_disabled:hover {
+    background-color: var(--brown-color2);
+}
+
+.Feedback_form_div3_btn2 {
+    background-color: var(--blue-color1);
+    color: var(--white-color1);
+    padding: 10px 22px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in, border-radius 0.2s ease-in;
+}
+
+.Feedback_form_div3_btn2:hover {
+    background-color: var(--orange-color1);
+    border-radius: 20px;
+}
+
+/* Responsive Design */
+@media(max-width: 480px) {
+    .Feedback {
+        max-width: 360px;
+        padding: 8px 15px;
+    }
+
+    .Feedback_h2 {
+        font-size: 25px;
+    }
+
+    .Feedback_form_input,
+    .Feedback_form_textarea {
+        margin-bottom: 12px;
+    }
+}
+
+@media(max-width: 380px) {
+    .Feedback {
+        max-width: 320px;
+        padding: 8px 10px;
+    }
+}
+
+/* Read Testimonials */
+.Feedback_testimonial_btn_link {
+    text-decoration: none;
+}
+
+.Feedback_testimonial_btn {
+    margin: 10px auto;
+    color: var(--white-color3);
+    background-color: var(--blue-color1);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 10px 22px;
+    border: none;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in, border-radius 0.2s ease-in;
+}
+
+.Feedback_testimonial_btn:hover {
+    background-color: var(--orange-color1);
+    border-radius: 20px;
+}

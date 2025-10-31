@@ -106,7 +106,7 @@ const LoginPage = () => {
 
                     <button
                         className={styles.LoginPage_btn}
-                        type="submit"
+                        type='submit'
                     >
                         {isLoading ? 'Logging...' : 'Login'}
                     </button>

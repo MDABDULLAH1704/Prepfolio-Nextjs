@@ -62,6 +62,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.Hero_btn_link {
+    text-decoration: none;
+}
+
 .Hero_btn {
     color: var(--white-color3);
     background-color: var(--blue-color1);
@@ -75,7 +79,7 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    transition: background-color 0.4s ease, color 0.4s ease, border-radius  0.4s ease;
+    transition: background-color 0.4s ease, color 0.4s ease, border-radius 0.4s ease;
 }
 
 .Hero_btn:hover {
@@ -84,8 +88,8 @@
     border-radius: 20px;
 }
 
-.Hero_btn_link {
-    text-decoration: none;
+.Hero_btn_secondary {
+    margin-top: 6px;
 }
 
 /* Responsive Design */

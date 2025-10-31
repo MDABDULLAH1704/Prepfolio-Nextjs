@@ -1,0 +1,137 @@
+.Testimonial {
+    margin-top: 70px;
+}
+
+.Testimonial_h2 {
+    text-align: center;
+    font-size: 30px;
+    color: var(--black-color1);
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Testimonial_h2 span {
+    color: var(--orange-color1);
+}
+
+.Testimonial_loading {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--black-color1);
+    font-size: 28px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Testimonial_feedback {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--brown-color1);
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Testimonial_ul {
+    list-style: none;
+    margin: 20px;
+    padding: 10px 0px;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--orange-color1) var(--white-color3);
+}
+
+.Testimonial_ul::-webkit-scrollbar {
+    height: 8px;
+}
+
+.Testimonial_ul::-webkit-scrollbar-thumb {
+    background-color: var(--blue-color1);
+    border-radius: 4px;
+}
+
+.Testimonial_ul::-webkit-scrollbar-track {
+    background: var(--white-color1);
+}
+
+.Testimonial_li {
+    position: relative;
+    flex: 0 0 320px;
+    height: 320px;
+    color: var(--brown-color1);
+    background-color: #fffafa;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Testimonial_li:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.Testimonial_li_div1 {
+    margin-bottom: 5px;
+    text-align: center;
+    color: var(--blue-color1);
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Testimonial_li_p {
+    font-size: 12px;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Testimonial_li_div2 {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: var(--brown-color2);
+    font-size: 13px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.scrollHint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--brown-color1);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    animation: blink 1s infinite;
+}
+
+.scrollArrow {
+    color: var(--red-color1);
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Testimonial_ul {
+        list-style: none;
+        margin: 10px;
+    }
+}

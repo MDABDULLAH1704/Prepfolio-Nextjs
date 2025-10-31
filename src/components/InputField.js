@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './InputField.module.css'
 
 const InputField = ({ label, type, name, value, placeholder, onChange }) => {
-
     return (
         <>
             <div className={styles.InputField}>

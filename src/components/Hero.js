@@ -69,6 +69,11 @@ const Hero = () => {
                             Explore Courses <FaArrowRight />
                         </button>
                     </Link>
+                    <Link href='/testimonials' className={styles.Hero_btn_link}>
+                        <button className={`${styles.Hero_btn} ${styles.Hero_btn_secondary}`}>
+                            Read Testimonials <FaArrowRight />
+                        </button>
+                    </Link>
                 </section >
             )}
         </>

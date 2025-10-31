@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styles from './Navbar.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import { FaHome, FaUserGraduate, FaUser, FaUserCircle, FaQuestionCircle, FaEnvelope } from 'react-icons/fa'
+import { FaHome, FaUserGraduate, FaUser, FaUserCircle, FaQuestionCircle, FaEnvelope, FaCommentDots } from 'react-icons/fa'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const Navbar = () => {
@@ -41,6 +41,9 @@ const Navbar = () => {
                     <Link href='/faqs' className={styles.navbarRightLink}>
                         <p><FaQuestionCircle className={styles.navbarRight_Icon} /> FAQs</p>
                     </Link>
+                    <Link href='/feedback' className={styles.navbarRightLink}>
+                        <p><FaCommentDots className={styles.navbarRight_Icon} /> Feedback</p>
+                    </Link>
                     <Link href='/contact' className={styles.navbarRightLink}>
                         <p><FaEnvelope className={styles.navbarRight_Icon} /> Contact</p>
                     </Link>
@@ -67,6 +70,9 @@ const Navbar = () => {
                     </Link>
                     <Link href='/faqs' className={styles.menuLink} onClick={handleShowMenu}>
                         <p><FaQuestionCircle className={styles.menuList_Icon} /> FAQs</p>
+                    </Link>
+                    <Link href='/feedback' className={styles.menuLink} onClick={handleShowMenu}>
+                        <p><FaCommentDots className={styles.menuList_Icon} /> Feedback</p>
                     </Link>
                     <Link href='/contact' className={styles.menuLink} onClick={handleShowMenu}>
                         <p><FaEnvelope className={styles.menuList_Icon} /> Contact</p>
