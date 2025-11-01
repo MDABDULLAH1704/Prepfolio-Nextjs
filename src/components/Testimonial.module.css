@@ -93,7 +93,7 @@
     bottom: 5px;
     right: 5px;
     color: var(--brown-color2);
-    font-size: 13px;
+    font-size: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -126,7 +126,6 @@
         opacity: 1;
     }
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {

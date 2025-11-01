@@ -5,6 +5,7 @@ import { BCAFirstSemesterPracticeQuestions } from '../data/BCA1stSem';
 import { BCAThirdSemesterPracticeQuestions } from '../data/BCA3rdSem';
 import { BCAFifthSemesterPracticeQuestions } from '../data/BCA5thSem';
 import Accordion2 from './Accordion2';
+import CodeBlock from './CodeBlock';
 import Image from 'next/image';
 
 
@@ -26,7 +27,8 @@ const PracticeQuestion = ({ _id }) => {
         // Stop any ongoing speech before starting new
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-IN'; // You can change accent (e.g., 'en-US', 'en-GB')
+        // utterance.lang = 'en-IN'; // You can change accent (e.g., 'en-US', 'en-GB')
+        utterance.lang = 'hi-IN'; // For natural Hindi
         utterance.rate = 1; // Speed (0.5–2)
         utterance.pitch = 1; // Tone (0–2)
         utterance.onend = () => setSpeakingIndex(null);
@@ -77,12 +79,15 @@ const PracticeQuestion = ({ _id }) => {
                     questions.map((q, index) => (
                         <div key={index} className={styles.PracticeQuestion_div}>
                             <h4 className={styles.PracticeQuestion_div_h4}>{q.subject}</h4>
+                            {/* Questions Wise Answer */}
                             <p className={styles.PracticeQuestion_div_question}>
                                 <b>Q{index + 1}.</b> {q.question}
                             </p>
+                            {/* Answer Wise Answer */}
                             <p className={styles.PracticeQuestion_div_answer}>
                                 <b>Ans:</b> {q.answer}
                             </p>
+                            {/* Point Wise Answer */}
                             <div className={styles.PracticeQuestion_div_points}>
                                 <p>{q.point1}</p>
                                 <p>{q.point2}</p>
@@ -96,11 +101,17 @@ const PracticeQuestion = ({ _id }) => {
                                 <p>{q.point10}</p>
                             </div>
 
+                            {/* Code Answer */}
+                            {q.codeAnswer && (
+                                <CodeBlock language={q.codeLanguage} code={q.codeAnswer} />
+                            )}
+
+
                             {/* View Image Answer */}
                             {q.image && (
                                 <div
                                     className={styles.PracticeQuestion_div_img}
-                                    onClick={() => openImageModal(q.image.src)} // ✅ access .src
+                                    onClick={() => openImageModal(q.image.src)}
                                 >
                                     <p>🖼️ View Image Answer</p>
                                 </div>

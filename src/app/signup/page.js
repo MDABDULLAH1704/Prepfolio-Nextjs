@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '@/components/Navbar'
 import SignupPage from '@/components/SignupPage'
 import Alert from '@/components/Alert'
+import SeeDemoButton from '@/components/SeeDemoButton';
 
 
 export const metadata = {
@@ -36,6 +37,7 @@ const page = () => {
       <Navbar />
       <SignupPage />
       <Alert message='All fields are required. Enter accurate details to ensure smooth signup and course access.' />
+      <SeeDemoButton />
     </>
   )
 }

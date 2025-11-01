@@ -6,3 +6,4 @@ npm install mongoose express cors bcrypt jsonwebtoken joi dotenv
 npm install concurrently --save-dev
 npm install aos
 npm i razorpay
+npm install react-syntax-highlighter

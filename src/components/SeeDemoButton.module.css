@@ -1,0 +1,31 @@
+.SeeDemoButton {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    width: 40px;
+    height: 110px;
+    background-color: var(--blue-color1);
+    color: var(--white-color1);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    writing-mode: sideways-lr;
+    text-orientation: unset;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in, border-top 0.3s ease-in;
+}
+
+
+.SeeDemoButton:hover {
+    background-color: var(--orange-color1);
+    border-top: 8px solid var(--orange-color1);
+}
+
+.SeeDemoButton span {
+    transform: rotate(180deg);
+}

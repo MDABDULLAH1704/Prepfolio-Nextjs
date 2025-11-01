@@ -2,6 +2,7 @@
 import React from 'react'
 import Navbar from '@/components/Navbar';
 import Feedback from "@/components/Feedback";
+import SeeDemoButton from '@/components/SeeDemoButton';
 
 
 const page = () => {
@@ -13,6 +14,7 @@ const page = () => {
         <>
             <Navbar />
             <Feedback onFeedbackSubmit={handleFeedbackSubmit} />
+            <SeeDemoButton />
         </>
     )
 }

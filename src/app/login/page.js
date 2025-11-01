@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '@/components/Navbar'
 import LoginPage from '@/components/LoginPage'
 import Alert from '@/components/Alert'
+import SeeDemoButton from '@/components/SeeDemoButton';
 
 
 export const metadata = {
@@ -36,6 +37,7 @@ const page = () => {
             <Navbar />
             <LoginPage />
             <Alert message='For your account security, Only one device can stay logged in. Logging in elsewhere will logout your current device.' />
+            <SeeDemoButton />
         </>
     )
 }

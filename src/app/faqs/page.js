@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import FAQsDetail1 from '@/components/FAQsDetail1'
 import FAQsDetail2 from '@/components/FAQsDetail2'
 import Footer from '@/components/Footer';
+import SeeDemoButton from '@/components/SeeDemoButton';
 
 
 export const metadata = {
@@ -38,6 +39,7 @@ const page = () => {
       <FAQsDetail1 marginTopValue='120px' />
       <FAQsDetail2 />
       <Footer />
+      <SeeDemoButton />
     </>
   )
 }

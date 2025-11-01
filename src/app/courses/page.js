@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
 import CoursePage from '@/components/CoursePage'
+import SeeDemoButton from '@/components/SeeDemoButton';
 
 
 export const metadata = {
@@ -34,6 +35,7 @@ const page = () => {
     <>
       <Navbar />
       <CoursePage />
+      <SeeDemoButton />
     </>
   )
 }

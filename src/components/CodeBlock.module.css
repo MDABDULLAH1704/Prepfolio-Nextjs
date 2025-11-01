@@ -1,0 +1,22 @@
+.CodeBlock {
+    background-color: #1e1e2f;
+    padding: 5px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+/* Responsive Design */
+@media(max-width: 768px) {
+    .CodeBlock {
+        margin-right: 10px;
+    }
+}
+
+@media(max-width: 480px) {
+    .CodeBlock {
+        margin-right: 5px;
+    }
+}
