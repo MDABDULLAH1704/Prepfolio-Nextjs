@@ -9,7 +9,7 @@ const SeeDemoButton = () => {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push('/see-demo');
+        router.push('/courses-demo');
     };
 
     return (

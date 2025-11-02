@@ -29,3 +29,18 @@
 .SeeDemoButton span {
     transform: rotate(180deg);
 }
+
+/* Responsive Design */
+@media(max-width:480px) {
+    .SeeDemoButton {
+        bottom: 3px;
+        right: 3px;
+        width: 35px;
+        height: 80px;
+        font-size: 11px;
+    }
+
+    .SeeDemoButton:hover {
+        border-top: 5px solid var(--orange-color1);
+    }
+}
