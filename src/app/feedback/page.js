@@ -5,7 +5,7 @@ import Feedback from "@/components/Feedback";
 import SeeDemoButton from '@/components/SeeDemoButton';
 
 
-const page = () => {
+const Page = () => {
     useEffect(() => {
         document.title = 'Feedback | Prepfolio';
         const description =
@@ -33,4 +33,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
