@@ -38,7 +38,6 @@ const SignupDataShow = () => {
             if (!token) return autoLogout();
 
             try {
-                // const res = await fetch('/api/auth', {
                 const res = await fetch(`${API_BASE_URL}/auth`, {
                     method: 'GET',
                     headers: {

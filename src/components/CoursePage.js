@@ -13,7 +13,6 @@ const CoursePage = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                // const res = await fetch(`/api/courses/all`);
                 const res = await fetch(`${API_BASE_URL}/courses/all`);
                 const data = await res.json();
 

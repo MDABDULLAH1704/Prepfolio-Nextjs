@@ -88,6 +88,7 @@ export const verifyPayment = async (req) => {
             courseId,
         } = await req.json();
         const user = req.user;
+        // 
 
         if (!user)
             return { status: 401, body: { success: false, message: "Not authorized" } };
@@ -131,31 +132,107 @@ export const verifyPayment = async (req) => {
 /* =====================================
    3️⃣ Handle Razorpay Webhook (Server)
 ===================================== */
+// export const razorpayWebhook = async (req) => {
+//     try {
+//         const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
+//         const signature = req.headers.get("x-razorpay-signature");
+//         const body = await req.text();
+
+//         const expectedSignature = crypto.createHmac("sha256", secret).update(body).digest("hex");
+
+//         if (signature !== expectedSignature)
+//             return { status: 400, body: { error: "Invalid webhook signature" } };
+
+//         const parsed = JSON.parse(body);
+//         const event = parsed.event;
+//         const payment = parsed.payload?.payment?.entity;
+
+//         if (event === "payment.captured" && payment) {
+//             await Payment.findOneAndUpdate(
+//                 { razorpay_order_id: payment.order_id },
+//                 { razorpay_payment_id: payment.id, status: "paid" }
+//             );
+//         } else if (event === "payment.failed" && payment) {
+//             await Payment.findOneAndUpdate(
+//                 { razorpay_order_id: payment.order_id },
+//                 { status: "failed" }
+//             );
+//         }
+
+//         return { status: 200, body: { success: true } };
+//     } catch (error) {
+//         console.error("webhook Error:", error);
+//         return { status: 500, body: { success: false, message: "Server error" } };
+//     }
+// };
+/* =====================================
+   3️⃣ Handle Razorpay Webhook (Server)
+===================================== */
 export const razorpayWebhook = async (req) => {
     try {
         const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
         const signature = req.headers.get("x-razorpay-signature");
         const body = await req.text();
 
+        // IMPORTANT: check webhook signature first (Razorpay's signature for the payload)
         const expectedSignature = crypto.createHmac("sha256", secret).update(body).digest("hex");
-
-        if (signature !== expectedSignature)
+        if (signature !== expectedSignature) {
+            console.warn("Invalid webhook signature");
             return { status: 400, body: { error: "Invalid webhook signature" } };
+        }
 
         const parsed = JSON.parse(body);
         const event = parsed.event;
         const payment = parsed.payload?.payment?.entity;
 
+        // Define the same expiry constant used in verifyPayment
+        const SIX_MONTHS_MS = 6 * 30 * 24 * 60 * 60 * 1000;
+
         if (event === "payment.captured" && payment) {
-            await Payment.findOneAndUpdate(
-                { razorpay_order_id: payment.order_id },
-                { razorpay_payment_id: payment.id, status: "paid" }
+            // compute the razorpay_signature server-side so webhook provides same data as verifyPayment
+            const computedSignature = crypto
+                .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+                .update(`${payment.order_id}|${payment.id}`)
+                .digest("hex");
+
+            const boughtAt = new Date();
+            const expiry = new Date(boughtAt.getTime() + SIX_MONTHS_MS);
+
+            // Update atomically and idempotently: only set fields if status is not already 'paid'
+            const updated = await Payment.findOneAndUpdate(
+                { razorpay_order_id: payment.order_id, status: { $ne: "paid" } },
+                {
+                    razorpay_payment_id: payment.id,
+                    razorpay_signature: computedSignature,
+                    status: "paid",
+                    boughtAt,
+                    expiry,
+                },
+                { new: true }
             );
+
+            // If already paid (null returned), ensure at least payment id & signature exist
+            if (!updated) {
+                await Payment.findOneAndUpdate(
+                    { razorpay_order_id: payment.order_id },
+                    {
+                        $set: {
+                            razorpay_payment_id: payment.id,
+                            razorpay_signature: computedSignature,
+                        },
+                    }
+                );
+            }
+
+            console.log(`Webhook: payment.captured processed for order ${payment.order_id}`);
         } else if (event === "payment.failed" && payment) {
             await Payment.findOneAndUpdate(
                 { razorpay_order_id: payment.order_id },
                 { status: "failed" }
             );
+            console.log(`Webhook: payment.failed for order ${payment.order_id}`);
+        } else {
+            console.log("Webhook: Unhandled event", event);
         }
 
         return { status: 200, body: { success: true } };
@@ -164,6 +241,7 @@ export const razorpayWebhook = async (req) => {
         return { status: 500, body: { success: false, message: "Server error" } };
     }
 };
+
 
 /* =====================================
    4️⃣ Get Active Courses (Protected)
