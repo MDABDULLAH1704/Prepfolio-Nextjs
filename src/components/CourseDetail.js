@@ -14,6 +14,7 @@ const CourseDetail = ({ title, subjects }) => {
                         <p><b>Topics -</b> {s.topicContent}</p>
                     </div>
                 ))}
+                <h4 className={styles.CourseDetail_h4}>👉 Practice Questions <span>200+</span></h4>
             </div>
         </>
     )

@@ -132,42 +132,6 @@ export const verifyPayment = async (req) => {
 /* =====================================
    3️⃣ Handle Razorpay Webhook (Server)
 ===================================== */
-// export const razorpayWebhook = async (req) => {
-//     try {
-//         const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
-//         const signature = req.headers.get("x-razorpay-signature");
-//         const body = await req.text();
-
-//         const expectedSignature = crypto.createHmac("sha256", secret).update(body).digest("hex");
-
-//         if (signature !== expectedSignature)
-//             return { status: 400, body: { error: "Invalid webhook signature" } };
-
-//         const parsed = JSON.parse(body);
-//         const event = parsed.event;
-//         const payment = parsed.payload?.payment?.entity;
-
-//         if (event === "payment.captured" && payment) {
-//             await Payment.findOneAndUpdate(
-//                 { razorpay_order_id: payment.order_id },
-//                 { razorpay_payment_id: payment.id, status: "paid" }
-//             );
-//         } else if (event === "payment.failed" && payment) {
-//             await Payment.findOneAndUpdate(
-//                 { razorpay_order_id: payment.order_id },
-//                 { status: "failed" }
-//             );
-//         }
-
-//         return { status: 200, body: { success: true } };
-//     } catch (error) {
-//         console.error("webhook Error:", error);
-//         return { status: 500, body: { success: false, message: "Server error" } };
-//     }
-// };
-/* =====================================
-   3️⃣ Handle Razorpay Webhook (Server)
-===================================== */
 export const razorpayWebhook = async (req) => {
     try {
         const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
@@ -176,8 +140,8 @@ export const razorpayWebhook = async (req) => {
 
         // IMPORTANT: check webhook signature first (Razorpay's signature for the payload)
         const expectedSignature = crypto.createHmac("sha256", secret).update(body).digest("hex");
+
         if (signature !== expectedSignature) {
-            console.warn("Invalid webhook signature");
             return { status: 400, body: { error: "Invalid webhook signature" } };
         }
 
@@ -224,15 +188,11 @@ export const razorpayWebhook = async (req) => {
                 );
             }
 
-            console.log(`Webhook: payment.captured processed for order ${payment.order_id}`);
         } else if (event === "payment.failed" && payment) {
             await Payment.findOneAndUpdate(
                 { razorpay_order_id: payment.order_id },
                 { status: "failed" }
             );
-            console.log(`Webhook: payment.failed for order ${payment.order_id}`);
-        } else {
-            console.log("Webhook: Unhandled event", event);
         }
 
         return { status: 200, body: { success: true } };

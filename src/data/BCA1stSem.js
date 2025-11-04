@@ -419,107 +419,164 @@ export const BCAFirstSemesterPracticeQuestions = {
         {
             subject: 'C - PROGRAMMING',
             question: '1. What are the main structures of C programming language? Explain its basic components.',
-            answer: 'The structure of a C program defines the organized format in which a C program is written and executed.',
-            point1: '● Documentation Section – It contains comments about the program (like name, purpose, author, etc.).',
-            point2: '● Link Section – Used to include header files using #include.',
-            point3: '● Definition Section – Used to define constants using #define.',
+            answer: 'The structure of a C program defines how different sections are organized to form a complete program.',
+            point1: '● Documentation Section – Used for comments about the program (author name, purpose, etc.).',
+            point2: '● Link Section – Includes header files using #include.',
+            point3: '● Definition Section – Used to define constants with #define.',
             point4: '● Global Declaration Section – Declares global variables and functions.',
-            point5: '● main() Function Section – The main part of the program where execution starts.',
+            point5: '● main() Function Section – The starting point of program execution.',
             point6: '● Subprogram Section – Contains user-defined functions.',
+            codeLanguage: '',
+            codeAnswer: ``,
             explanation:
-                'C program ek fixed structure me likha jata hai. Pehle hum comments likhte hain documentation me, fir header files include karte hain jaise #include<stdio.h>. Agar constant define karni ho to #define use karte hain. Fir global variables declare karte hain, aur main() function likhte hain jahan se program start hota hai. Agar apne functions banana hai to wo subprogram section me aate hain. Ye pura structure ek organized tarike se program likhne me help karta hai.',
+                'C program ek fixed structure follow karta hai. Sabse pehle hum likhte hain comments (Documentation Section), fir header files include karte hain jaise #include<stdio.h>. Agar koi constant define karni ho toh Definition Section me likhte hain jaise #define PI 3.14. Global Declaration me global variables likhte hain jo pure program me use ho sakein. main() function wo jagah hai jahan se program start hota hai. Agar apne khud ke functions banana hain toh wo Subprogram Section me likhte hain. Is tarah structure ek organized format me code likhne me madad karta hai.',
         },
         {
             question: '2. What are the elements of C programming?',
-            answer: 'Elements of C programming are the basic building blocks used to create a C program.',
-            point1: '● Character Set – Alphabets, digits, and special symbols used in C.',
-            point2: '● Tokens – Smallest units like keywords, identifiers, operators, etc.',
-            point3: '● Variables – Names given to memory locations.',
-            point4: '● Constants – Fixed values that do not change.',
-            point5: '● Data Types – Define type of data a variable can hold.',
+            answer: 'Elements of C programming are the basic building blocks used to create any C program.',
+            point1: '● Character Set – Includes alphabets, digits, and special symbols.',
+            point2: '● Tokens – Smallest units like keywords, identifiers, operators.',
+            point3: '● Variables – Named storage locations for data.',
+            point4: '● Constants – Fixed values that never change.',
+            point5: '● Data Types – Define the type of data variable can hold.',
             point6: '● Operators – Used to perform operations on data.',
+            codeLanguage: '',
+            codeAnswer: ``,
             explanation:
-                'C language me elements woh cheezein hain jinke bina program nahi likha ja sakta. Jaise hum characters, numbers, aur symbols ka use karte hain (character set). Fir keywords, variables, constants aur operators ka use karte hain program banane me. In sabhi elements ke milkar hi ek logical aur complete program banta hai.',
+                'C programming me elements woh basic cheezein hain jinse koi bhi program banta hai. Jaise characters aur symbols (character set), variables jahan data store hota hai, constants jinka value fix rehta hai, aur operators jo operations perform karte hain. In sab elements ko combine karke ek functional C program banaya jata hai.',
         },
         {
             question: '3. What is an algorithm? Explain with a real-life example.',
-            answer: 'An algorithm is a step-by-step procedure to solve a problem or perform a specific task.',
-            point1: '● It is written in simple language (not code).',
-            point2: '● Helps in systematic problem solving.',
+            answer: 'An algorithm is a step-by-step procedure used to solve a problem.',
+            point1: '● It is a logical sequence of steps.',
+            point2: '● Written in simple English, not in code.',
             point3: '● Example: Algorithm to make tea:',
             point4: '   1. Boil water',
             point5: '   2. Add tea leaves',
             point6: '   3. Add milk and sugar',
             point7: '   4. Boil again and serve',
+            codeLanguage: '',
+            codeAnswer: ``,
             explanation:
-                'Algorithm basically ek step-by-step process hota hai jisse koi bhi problem solve hoti hai. Jaise hum chai banate hain — pehle paani ubalte hain, fir chai patti, doodh aur chini daalte hain. Ye har step ek algorithm ka part hai. Isi tarah hum computer program likhne se pehle bhi ek algorithm banate hain taaki problem ko easily solve kar sakein.',
+                'Algorithm ek step-by-step process hota hai jisse hum koi bhi problem solve karte hain. Jaise chai banana hai to pehle paani ubalte hain, fir chai patti, doodh aur chini daalte hain, aur fir chai serve karte hain. Ye sab steps ek logical order me likhe hote hain. Isi tarah programming me bhi hum algorithm likhte hain taaki problem easily solve ho.',
         },
         {
             question: '4. What is a flowchart? Draw and explain a flowchart for finding the largest of two numbers.',
-            answer: 'A flowchart is a diagrammatic representation of an algorithm using symbols.',
+            answer: 'A flowchart is a graphical representation of an algorithm using symbols and arrows.',
             point1: '● It shows the flow of control in a program.',
-            point2: '● Uses symbols like: Oval (Start/End), Parallelogram (Input/Output), Diamond (Decision), Rectangle (Process).',
-            point3: '● Example: Finding largest of two numbers:',
+            point2: '● Symbols used: Oval (Start/End), Rectangle (Process), Diamond (Decision), Parallelogram (Input/Output).',
+            point3: '● Steps to find largest of two numbers:',
             point4: '   1. Start',
             point5: '   2. Input A, B',
-            point6: '   3. If A > B, print A is largest',
+            point6: '   3. If A > B then print A is largest',
             point7: '   4. Else print B is largest',
             point8: '   5. Stop',
+            codeLanguage: 'c',
+            codeAnswer: `
+#include <stdio.h>
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    if(a > b)
+        printf("%d is largest", a);
+    else
+        printf("%d is largest", b);
+    return 0;
+}
+    `,
             explanation:
-                'Flowchart ek diagram hota hai jisme hum program ke steps ko symbols ke through dikhate hain. Jaise agar do number me se bada number find karna hai, to hum input lete hain (A, B), fir check karte hain A > B? Agar haan to A print karte hain warna B. Ye sab step ek flowchart me shapes ke through easily samjha ja sakta hai.',
+                'Flowchart ek diagram hota hai jisme program ke steps ko shapes ke form me dikhaya jata hai. Jaise agar do number me se bada number find karna hai to hum pehle dono input lete hain, fir check karte hain A > B. Agar haan to A print karte hain warna B. Ye process visually flowchart me arrows aur symbols ke saath show kiya jata hai.',
         },
         {
             question: '5. What are C tokens? List and explain different types of tokens in C.',
-            answer: 'C tokens are the smallest individual units in a C program.',
+            answer: 'C tokens are the smallest units of a C program that the compiler can understand.',
             point1: '● Keywords – Reserved words like int, if, for.',
-            point2: '● Identifiers – User-defined names like variable names.',
+            point2: '● Identifiers – User-defined names for variables, functions.',
             point3: '● Constants – Fixed values like 10, 3.14, ‘A’.',
             point4: '● Operators – Symbols like +, -, *, /.',
             point5: '● Special Symbols – (), {}, [], etc.',
-            point6: '● Strings – Sequence of characters in double quotes.',
+            point6: '● Strings – Characters enclosed in double quotes.',
+            codeLanguage: '',
+            codeAnswer: ``,
             explanation:
-                'C program me har chhoti cheez ek token hoti hai. Jaise keyword (if, for), variable name (x, total), number (100), ya operator (+, -). Ye sab tokens milkar ek complete statement banate hain. Matlab program ka har word ya symbol ek token ke form me count hota hai.',
+                'Tokens basically wo chhoti chhoti cheezein hoti hain jo C compiler samajhta hai. Jaise keywords (if, int), variables (x, total), constants (10, 3.14), aur operators (+, -). Ye sab milke ek C program ka sentence banate hain. Matlab C program ka har part ek token ke form me hota hai.',
         },
         {
             question: '6. What are keywords in C? Give examples and explain their purpose.',
-            answer: 'Keywords are reserved words that have special meaning to the compiler.',
-            point1: '● Cannot be used as variable names.',
-            point2: '● Always written in lowercase.',
-            point3: '● Example: int, float, char, if, else, while, return.',
+            answer: 'Keywords are predefined reserved words that have special meaning in C.',
+            point1: '● Used to perform specific tasks.',
+            point2: '● Cannot be used as variable names.',
+            point3: '● Example: int, float, if, else, return, while.',
+            codeLanguage: '',
+            codeAnswer: ``,
             explanation:
-                'Keywords wo words hote hain jo C language ke liye already define hote hain. Matlab inka meaning fix hota hai, hum unhe variable ke naam ke liye use nahi kar sakte. Jaise "int" ka matlab integer data type hota hai, "if" ka matlab condition check karna hota hai. Inko hum change nahi kar sakte.',
+                'Keywords C language ke predefined words hote hain jinka meaning fixed hota hai. Hum inhe variable ke naam ke liye use nahi kar sakte. Jaise int ka matlab integer data type, if ka matlab condition check karna. Compiler in keywords ko special meaning ke sath samajhta hai.',
         },
         {
             question: '7. What are identifiers, variables, and constants?',
-            answer: 'Identifiers are names given to variables, functions, or arrays. Variables store data that can change. Constants hold fixed values.',
+            answer: 'Identifiers are names for variables or functions. Variables store data that can change, and constants store data that cannot change.',
             point1: '● Identifier – User-defined name (like total, sum).',
-            point2: '● Variable – Storage location whose value can change during program execution.',
+            point2: '● Variable – Data storage whose value can change.',
             point3: '● Constant – Fixed value that does not change.',
-            point4: '● Example: int a = 10;  → Here a is variable, 10 is constant.',
+            codeLanguage: 'c',
+            codeAnswer: `
+#include <stdio.h>
+int main() {
+    int a = 10;   // variable
+    const float PI = 3.14;  // constant
+    printf("Value of a = %d\\n", a);
+    printf("Value of PI = %.2f", PI);
+    return 0;
+}
+    `,
             explanation:
-                'Identifier ek naam hota hai jo hum variable, function ya array ko dete hain. Variable ek memory location hoti hai jisme data store hota hai aur change ho sakta hai. Constant ek aisi value hoti hai jo program me fix rehti hai jaise 10, 3.14, ‘A’. Example me int a = 10; me a variable hai aur 10 ek constant.',
+                'Identifier ek naam hota hai jo hum variable, function, ya array ko dete hain. Variable ek memory location hoti hai jisme value change ho sakti hai. Constant ek fix value hoti hai jo change nahi hoti jaise 3.14. Example me int a = 10 ek variable hai aur PI ek constant hai.',
         },
         {
             question: '8. What are data types in C? Explain different types of data types with examples.',
-            answer: 'Data types define the type of data a variable can store.',
+            answer: 'Data types define the type of value that a variable can hold in C.',
             point1: '● Basic Data Types – int, float, char, double.',
             point2: '● Derived Data Types – array, pointer, structure, union.',
-            point3: '● Enumeration Data Types – enum (user-defined set of constants).',
-            point4: '● Void Data Type – represents no value or empty type.',
+            point3: '● Enumeration Data Types – enum (set of named constants).',
+            point4: '● Void Data Type – represents no value.',
+            codeLanguage: 'c',
+            codeAnswer: `
+#include <stdio.h>
+int main() {
+    int age = 20;
+    float salary = 25000.50;
+    char grade = 'A';
+    printf("Age: %d\\nSalary: %.2f\\nGrade: %c", age, salary, grade);
+    return 0;
+}
+    `,
             explanation:
-                'Data type batata hai ki ek variable me kis type ka data store hoga. Jaise int me integer numbers, float me decimal numbers, char me single character store hota hai. Derived type jaise array ya structure me multiple values store karte hain. Agar koi function kuch return nahi karta to uska type void hota hai.',
+                'Data type batata hai ki variable me kis type ka data store hoga. Jaise int me integer numbers, float me decimal numbers, char me character, aur double me large decimal values store hoti hain. Har variable ke liye sahi data type choose karna important hota hai taaki memory efficient ho.',
         },
         {
             question: '9. What are operators in C language?',
-            answer: 'Operators are special symbols that perform operations on variables and values.',
-            point1: '● Used for calculations, comparisons, and logical decisions.',
+            answer: 'Operators are special symbols used to perform operations on variables and values.',
+            point1: '● Used for arithmetic, comparison, logic, and assignment.',
             point2: '● Example: +, -, *, /, %, ==, &&, || etc.',
+            codeLanguage: 'c',
+            codeAnswer: `
+#include <stdio.h>
+int main() {
+    int a = 10, b = 5;
+    printf("Sum = %d\\n", a + b);
+    printf("Difference = %d\\n", a - b);
+    printf("Product = %d\\n", a * b);
+    printf("Division = %d\\n", a / b);
+    return 0;
+}
+    `,
             explanation:
-                'Operator ek symbol hota hai jo variables ya values par kuch operation karta hai. Jaise + addition ke liye, - subtraction ke liye, == comparison ke liye use hota hai. Inse hum calculations aur decision making kar sakte hain program me.',
+                'Operators program me calculation aur decision making ke liye use hote hain. Jaise + add karta hai, - subtract karta hai, == comparison karta hai, && aur || logical decisions ke liye use hote hain. Ye symbols computer ko batate hain ki data ke sath kya operation karna hai.',
         },
         {
             question: '10. Explain the different types of operators in C with examples.',
-            answer: 'C language supports several types of operators for different operations.',
+            answer: 'C supports various types of operators for performing different operations.',
             point1: '● Arithmetic Operators – +, -, *, /, %',
             point2: '● Relational Operators – ==, !=, >, <, >=, <=',
             point3: '● Logical Operators – &&, ||, !',
@@ -527,8 +584,22 @@ export const BCAFirstSemesterPracticeQuestions = {
             point5: '● Increment/Decrement Operators – ++, --',
             point6: '● Conditional Operator – ? :',
             point7: '● Bitwise Operators – &, |, ^, <<, >>',
+            codeLanguage: 'c',
+            codeAnswer: `
+#include <stdio.h>
+int main() {
+    int a = 10, b = 5;
+    printf("Arithmetic: %d\\n", a + b);
+    printf("Relational: %d\\n", a > b);
+    printf("Logical: %d\\n", (a > b) && (b > 0));
+    a += 2;
+    printf("Assignment: %d\\n", a);
+    printf("Increment: %d\\n", ++b);
+    return 0;
+}
+    `,
             explanation:
-                'Operators ko alag-alag type me divide kiya gaya hai taaki hum easily operations perform kar sakein. Arithmetic numbers pe kaam karta hai (+, -), relational comparison karta hai (==, >), logical conditions combine karta hai (&&, ||), aur assignment variables ko value assign karta hai (=, +=). Jaise a = b + c; me + aur = dono operators ka use hota hai.',
+                'C language me operators ko alag-alag categories me divide kiya gaya hai taaki hum alag purpose ke liye use kar sakein. Arithmetic numbers pe work karta hai, relational comparison karta hai, logical decision making ke liye, aur assignment variables me value dene ke liye. Jaise a += 2 matlab a = a + 2. Inhe use karke hum complex expressions bhi bana sakte hain.',
         },
     ],
 };

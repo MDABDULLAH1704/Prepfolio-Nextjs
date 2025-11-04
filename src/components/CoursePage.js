@@ -44,6 +44,10 @@ const CoursePage = () => {
 
     return (
         <>
+            <div className={styles.CoursePage_offer}>
+                🔥Offer Valid Until 8 November 2025
+            </div>
+
             <h2 className={styles.CoursePage_h2}>Learning Made <span>Easy</span></h2>
             <div className={styles.CoursePage}>
                 {courses.map((course) => (

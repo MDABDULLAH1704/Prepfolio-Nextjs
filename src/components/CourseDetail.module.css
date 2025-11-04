@@ -13,7 +13,20 @@
     margin-bottom: 10px;
     margin-left: 15px;
     text-align: start;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.CourseDetail_h4 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--brown-color1);
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.CourseDetail_h4 span {
+    color: var(--red-color1);
+}
 
 .CourseDetail_div {
     line-height: 16px;
@@ -39,4 +52,11 @@
 
 .CourseDetail_div p b {
     color: var(--brown-color2);
+}
+
+/* Responsive Design */
+@media(max-width:480px) {
+    .CourseDetail_h4 {
+        font-size: 23px;
+    }
 }
