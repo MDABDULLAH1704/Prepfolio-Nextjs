@@ -11,8 +11,8 @@ const FAQsDetail2 = () => {
                 <h2 className={styles.FAQsDetail2_h2}>Common <span>Questions</span></h2>
                 <Accordion
                     isOpen={true}
-                    question='Q1. Can I study at my own pace or is there a fixed schedule?'
-                    answer='Yes, all of our courses are designed for self-paced learning. You can access all materials at any time and work through them on your own schedule. There is no fixed schedule or deadline.'
+                    question='Q1. After purchasing a course, where can I access my unlocked content?'
+                    answer='Once you have successfully purchased a course, the unlocked course will be available on your Profile page. From there, you can start learning anytime at your convenience.'
                 />
                 <Accordion
                     question='Q2. Are all semester courses free or paid?'
@@ -55,8 +55,12 @@ const FAQsDetail2 = () => {
                     answer='The audio lessons are designed to make learning easier by explaining difficult concepts in a simple, conversational way. This helps you grasp and retain the information more effectively.'
                 />
                 <Accordion
-                    question="Q12. What happens if I log in on another device with the same account?"
-                    answer="For your account security, only one device can stay Logged in at a time. Logging in on another device will automatically Logout your previous session."
+                    question='Q12. What happens if I log in on another device with the same account?'
+                    answer='For your account security, only one device can stay Logged in at a time. Logging in on another device will automatically Logout your previous session.'
+                />
+                <Accordion
+                    question='Q13. Can I study at my own pace or is there a fixed schedule?'
+                    answer='Yes, all of our courses are designed for self-paced learning. You can access all materials at any time and work through them on your own schedule. There is no fixed schedule or deadline.'
                 />
             </section>
         </>

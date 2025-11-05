@@ -24,7 +24,7 @@ export const metadata = {
     title: 'Signup | Prepfolio',
     description:
       'Join Prepfolio today and get instant access to expert-curated PDF Notes, Practice Questions, and Audio Lessons for smarter exam preparation.',
-    url: 'https://prepfolio.xyz/signup',
+    url: 'https://prepfolio.co.in/signup',
     siteName: 'Prepfolio',
     type: 'website',
   },

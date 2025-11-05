@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar'
+import SeeDemo from '@/components/SeeDemo';
 import React from 'react'
 
 
@@ -19,7 +20,7 @@ export const metadata = {
         title: 'Interactive Demo | Prepfolio Learning Platform',
         description:
             'Try Prepfolio’s interactive demo to explore how our AI-based learning platform helps students study smarter with PDF notes, voice lessons, and practice tests.',
-        url: 'https://prepfolio.xyz/see-demo',
+        url: 'https://prepfolio.co.in/courses-demo',
         siteName: 'Prepfolio',
         type: 'website',
     },
@@ -30,6 +31,7 @@ const page = () => {
     return (
         <>
             <Navbar />
+            <SeeDemo />
         </>
     )
 }

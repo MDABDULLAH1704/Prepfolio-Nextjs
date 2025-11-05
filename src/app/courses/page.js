@@ -23,7 +23,7 @@ export const metadata = {
     title: 'Courses | Prepfolio',
     description:
       'Browse all Prepfolio courses with PDF Notes, Practice Questions, and Audio Lessons designed for students and self-learners.',
-    url: 'https://prepfolio.xyz/courses',
+    url: 'https://prepfolio.co.in/courses',
     siteName: 'Prepfolio',
     type: 'website',
   },

@@ -20,7 +20,7 @@ export const metadata = {
         title: 'Terms & Conditions | Prepfolio',
         description:
             'Review the Terms & Conditions of using Prepfolio’s digital learning platform, including course access, payment terms, and user obligations.',
-        url: 'https://prepfolio.xyz/terms-and-conditions',
+        url: 'https://prepfolio.co.in/terms-and-conditions',
         siteName: 'Prepfolio',
         type: 'article',
     },

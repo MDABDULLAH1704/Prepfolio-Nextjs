@@ -24,7 +24,7 @@ export const metadata = {
         title: 'Login | Prepfolio',
         description:
             'Sign in to Prepfolio to access your courses, study materials, and audio lessons securely with single-device protection.',
-        url: 'https://prepfolio.xyz/login',
+        url: 'https://prepfolio.co.in/login',
         siteName: 'Prepfolio',
         type: 'website',
     },

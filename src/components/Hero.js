@@ -8,6 +8,7 @@ import MatrixBackground from './MatrixBackground'
 import Loader from './Loader'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import SeeDemoButton from './SeeDemoButton'
 
 
 const Hero = () => {
@@ -74,6 +75,8 @@ const Hero = () => {
                             Read Testimonials <FaArrowRight />
                         </button>
                     </Link>
+
+                    <SeeDemoButton />
                 </section >
             )}
         </>

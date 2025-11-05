@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FAQsDetail1 from "@/components/FAQsDetail1";
 import Footer from "@/components/Footer";
-import SeeDemoButton from "@/components/SeeDemoButton";
 
 
 export const metadata = {
@@ -24,7 +23,7 @@ export const metadata = {
     title: 'Prepfolio | Learn Smarter with PDF Notes, Practice Questions & Audio Lessons',
     description:
       'Access high-quality PDF Notes, Practice Questions, and Audio Lessons on Prepfolio. Learn smarter, save time, and boost your exam preparation with expert-curated study materials.',
-    url: 'https://prepfolio.xyz',
+    url: 'https://prepfolio.co.in',
     siteName: 'Prepfolio',
     type: 'website',
   },
@@ -38,7 +37,6 @@ export default function Home() {
       <Hero />
       <FAQsDetail1 marginTopValue='100px' />
       <Footer />
-      <SeeDemoButton />
     </>
   );
 }

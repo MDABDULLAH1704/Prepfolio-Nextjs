@@ -21,7 +21,7 @@ export const metadata = {
         title: 'Privacy Policy | Prepfolio',
         description:
             'Learn how Prepfolio safeguards your personal data and ensures a secure experience when using our learning platform and Razorpay payments.',
-        url: 'https://prepfolio.xyz/privacy-policy',
+        url: 'https://prepfolio.co.in/privacy-policy',
         siteName: 'Prepfolio',
         type: 'article',
     },

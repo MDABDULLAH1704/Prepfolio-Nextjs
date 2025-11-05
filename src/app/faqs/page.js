@@ -25,7 +25,7 @@ export const metadata = {
     title: 'FAQs | Prepfolio',
     description:
       'Explore frequently asked questions about Prepfolio courses, payments, study materials, and account access.',
-    url: 'https://prepfolio.xyz/faqs',
+    url: 'https://prepfolio.co.in/faqs',
     siteName: 'Prepfolio',
     type: 'website',
   },

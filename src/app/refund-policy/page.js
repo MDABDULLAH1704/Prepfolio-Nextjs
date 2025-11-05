@@ -21,7 +21,7 @@ export const metadata = {
         title: 'Refund & Cancellation Policy | Prepfolio',
         description:
             'Read Prepfolio’s Refund & Cancellation Policy outlining terms for digital course content and Razorpay payments. Please review carefully before making a purchase.',
-        url: 'https://prepfolio.xyz/refund-policy',
+        url: 'https://prepfolio.co.in/refund-policy',
         siteName: 'Prepfolio',
         type: 'article',
     },

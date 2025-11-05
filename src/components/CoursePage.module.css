@@ -33,13 +33,12 @@
     border-radius: 1px;
     padding: 2px 6px;
     font-weight: 600;
-    color: #c70000;
+    color: var(--red-color1);
     box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
 }
 
 /* CoursePage_h2 */
 .CoursePage_h2 {
-    /* margin-top: 75px; */
     margin-top: 10px;
     color: var(--black-color1);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -89,5 +88,12 @@
 @media (max-width: 480px) {
     .CoursePage {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .CoursePage_offer {
+        margin-top: 60px;
+        width: 310px;
+        background: var(--white-color2);
+        border: 1px solid var(--white-color3);
     }
 }

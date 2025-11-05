@@ -53,8 +53,8 @@
 /* Whatsapp */
 .ProfilePage_whatsapp {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     font-size: 30px;
     color: var(--green-color1);
     background-color: var(--green-color5);
@@ -109,10 +109,27 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
+    /* Whatsapp */
     .ProfilePage_whatsapp {
         bottom: 5px;
         right: 5px;
         font-size: 25px;
+        color: var(--green-color1);
+        background-color: var(--white-color2);
+        border: 1px solid var(--white-color3);
+        border-radius: 2px;
+        padding: 6px 10px;
+        gap: 4px;
+    }
+
+    .ProfilePage_whatsapp:hover {
+        background-color: var(--green-color2);
+        border: 1px solid var(--green-color4);
+    }
+
+    .ProfilePage_whatsapp_hover {
+        background-color: var(--green-color2);
+        border: 1px solid var(--green-color4);
     }
 
     .ProfilePage_whatsapp p {

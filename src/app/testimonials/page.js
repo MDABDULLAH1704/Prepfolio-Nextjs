@@ -21,7 +21,7 @@ export const metadata = {
         title: 'Student Testimonials | Prepfolio',
         description:
             'Explore real student testimonials and experiences with Prepfolio’s interactive learning platform — see how our courses help learners achieve academic and career success.',
-        url: 'https://prepfolio.xyz/testimonials',
+        url: 'https://prepfolio.co.in/testimonials',
         siteName: 'Prepfolio',
         type: 'article',
     },

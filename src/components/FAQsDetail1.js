@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './FAQsDetail1.module.css'
 import Accordion from './Accordion'
 import Link from 'next/link'
+import SeeDemoButton from './SeeDemoButton'
 
 const FAQsDetail1 = ({ marginTopValue }) => {
     return (

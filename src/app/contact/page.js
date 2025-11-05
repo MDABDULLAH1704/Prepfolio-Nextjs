@@ -22,7 +22,7 @@ export const metadata = {
     title: 'Contact | Prepfolio',
     description:
       'Get in touch with the Prepfolio support team for queries related to your learning materials or payments.',
-    url: 'https://prepfolio.xyz/contact',
+    url: 'https://prepfolio.co.in/contact',
     siteName: 'Prepfolio',
     type: 'website',
   },
