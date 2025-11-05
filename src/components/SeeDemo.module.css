@@ -41,12 +41,20 @@
         width: 95%;
         margin: 12 auto 30px;
     }
+
+    .SeeDemo_imageWrapper:hover {
+        border-radius: 30px;
+    }
 }
 
 @media (max-width: 480px) {
     .SeeDemo_imageWrapper {
         width: 98%;
         margin: 12 auto 20px;
+    }
+
+    .SeeDemo_imageWrapper:hover {
+        border-radius: 20px;
     }
 }
 

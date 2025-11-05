@@ -37,6 +37,7 @@ const PDFNotes = ({ title, _id }) => {
                 <div className={styles.PDFNotes_div}>{renderPDFButtons(FirstSemNotesPDFs, 'Download Notes')}</div>
                 <div className={styles.PDFNotes_div}>{renderPDFButtons(ThirdSemNotesPDFs, 'Download Notes')}</div>
                 <div className={styles.PDFNotes_div}>{renderPDFButtons(FifthSemNotesPDFs, 'Download Notes')}</div>
+                <p className={styles.PDFNotes_para}>Remaining notes will be available soon.</p>
 
                 {!FirstSemNotesPDFs && !ThirdSemNotesPDFs && !FifthSemNotesPDFs && (
                     <p style={{ marginTop: '20px', fontStyle: 'italic', color: '#555' }}>

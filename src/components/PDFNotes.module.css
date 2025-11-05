@@ -26,6 +26,13 @@
     gap: 0px 10px;
 }
 
+.PDFNotes_para {
+    margin-top: 2px;
+    text-align: center;
+    color: var(--red-color1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .PDFNotes_div {

@@ -18,8 +18,8 @@
     right: 3px;
     font-size: 14px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 4px 10px;
-    width: 80px;
+    padding: 4px 10px 4px 12px;
+    width: 90px;
     border-radius: 5px;
     background-color: var(--green-color1);
     color: var(--white-color0);
