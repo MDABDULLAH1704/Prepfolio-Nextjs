@@ -2,7 +2,7 @@ export const BCAFifthSemesterNotesPDFs = {
     '6900ad49d3212038af1cd2c5': [
         {
             group: 'A',
-            pdfs: [''],
+            pdfs: ['BCA5thSemNotes1A.pdf'],
         },
         {
             group: 'B',
