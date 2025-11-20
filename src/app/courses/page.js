@@ -35,7 +35,7 @@ const page = () => {
     <>
       <Navbar />
       <CoursePage />
-      <SeeDemoButton />
+      {/* <SeeDemoButton /> */}
     </>
   )
 }
