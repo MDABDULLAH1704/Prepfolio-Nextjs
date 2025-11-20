@@ -28,7 +28,7 @@ const Page = () => {
         <>
             <Navbar />
             <Feedback onFeedbackSubmit={handleFeedbackSubmit} />
-            <SeeDemoButton />
+            {/* <SeeDemoButton /> */}
         </>
     )
 }

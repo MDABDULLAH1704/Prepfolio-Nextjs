@@ -37,7 +37,7 @@ const page = () => {
       <Navbar />
       <SignupPage />
       <Alert message='All fields are required. Enter accurate details to ensure smooth signup and course access.' />
-      <SeeDemoButton />
+      {/* <SeeDemoButton /> */}
     </>
   )
 }

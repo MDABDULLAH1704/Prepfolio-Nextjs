@@ -37,7 +37,7 @@ const page = () => {
             <Navbar />
             <LoginPage />
             <Alert message='For your account security, Only one device can stay logged in. Logging in elsewhere will logout your current device.' />
-            <SeeDemoButton />
+            {/* <SeeDemoButton /> */}
         </>
     )
 }

@@ -39,7 +39,7 @@ const page = () => {
       <FAQsDetail1 marginTopValue='120px' />
       <FAQsDetail2 />
       <Footer />
-      <SeeDemoButton />
+      {/* <SeeDemoButton /> */}
     </>
   )
 }

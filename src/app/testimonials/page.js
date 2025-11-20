@@ -33,7 +33,7 @@ const page = () => {
         <>
             <Navbar />
             <Testimonial />
-            <SeeDemoButton />
+            {/* <SeeDemoButton /> */}
         </>
     )
 }

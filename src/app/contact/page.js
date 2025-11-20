@@ -34,7 +34,7 @@ const page = () => {
     <>
       <Navbar />
       <ContactPage />
-      <SeeDemoButton />
+      {/* <SeeDemoButton /> */}
     </>
   )
 }
