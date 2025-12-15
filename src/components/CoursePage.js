@@ -45,7 +45,7 @@ const CoursePage = () => {
     return (
         <>
             <div className={styles.CoursePage_offer}>
-                🔥Offer Valid Until 15 December 2025
+                🔥Offer Valid Until 20 December 2025
             </div>
 
             <h2 className={styles.CoursePage_h2}>Learning Made <span>Easy</span></h2>
